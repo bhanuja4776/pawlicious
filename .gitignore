@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw brand asset export (organized copies live in public/assets, this is just the working staging folder)
+/brand-assets
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
