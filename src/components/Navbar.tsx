@@ -19,7 +19,7 @@ function Wordmark() {
   return (
     <span className="font-display text-2xl font-semibold leading-none tracking-tight md:text-[1.7rem]">
       <span className="text-coral">Paw-a-l</span>
-      <span className="text-teal-dark">icious</span>
+      <span className="text-teal">icious</span>
       <span className="ml-1 text-coral">♡</span>
     </span>
   );

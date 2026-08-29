@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import ScrollReveal from "@/components/ScrollReveal";
+import VideoSection from "@/components/VideoSection";
 import { NASTIES_FREE, SHARED_INGREDIENTS } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -90,6 +91,15 @@ export default function IngredientsPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <VideoSection
+        src="/assets/videos/video-2.mp4"
+        poster="/assets/photos/lifestyle-bowl-closeup.jpg"
+        eyebrow="Straight from the bowl"
+        headline="This is what real food looks like at dinner time."
+        subtext="Gently cooked, portioned fresh, and served the way dogs actually enjoy it."
+        dark={false}
+      />
 
       <section className="bg-teal-dark py-20 text-cream-soft lg:py-28">
         <div className="container-shell grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">

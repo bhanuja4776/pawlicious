@@ -4,14 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT } from "@/lib/animations";
-import AnimatedText from "@/components/AnimatedText";
+import MagneticButton from "@/components/MagneticButton";
+import { HeartIcon, LeafIcon, PotIcon, PawIcon } from "@/components/icons";
 
 const TRUST_ITEMS = [
-  { label: "100% natural ingredients" },
-  { label: "No preservatives" },
-  { label: "Gently cooked" },
-  { label: "Made in Australia" },
+  { Icon: HeartIcon, label: "Made with real ingredients" },
+  { Icon: LeafIcon, label: "No preservatives or additives" },
+  { Icon: PotIcon, label: "Gently cooked for nutrition" },
+  { Icon: PawIcon, label: "Made in Australia" },
 ];
+
+const HERO_PHOTO = {
+  src: "/assets/photos/hero-mitso.jpg",
+  alt: "Mitso, our head taste-tester, with a bowl of Paw-a-licious homemade dog food",
+};
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -20,101 +26,81 @@ export default function Hero() {
     reduce
       ? {}
       : {
-          initial: { opacity: 0, y: 24 },
+          initial: { opacity: 0, y: 18 },
           animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, ease: EASE_OUT, delay },
+          transition: { duration: 0.6, ease: EASE_OUT, delay },
         };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-cream-soft via-cream to-cream pb-16 pt-28 md:pt-32 lg:pb-24 lg:pt-40">
-      {/* soft ambient shapes — organic, not paw-print clichés */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-teal-tint/70 blur-2xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-16 top-1/3 h-80 w-80 rounded-full bg-coral-tint/60 blur-2xl"
-      />
+    <section className="relative h-dvh overflow-hidden bg-white">
+      <div className="grid h-dvh grid-rows-[auto_1fr] lg:grid-cols-2 lg:grid-rows-1">
+        <div className="relative z-10 flex flex-col justify-start gap-2 overflow-hidden px-6 pb-3 pt-20 sm:gap-3 sm:px-10 sm:pb-5 sm:pt-24 lg:gap-4 lg:px-14 lg:pt-28 xl:px-20">
+          <motion.p
+            {...fadeUp(0)}
+            className="text-xs font-bold uppercase tracking-[0.14em] text-ink sm:text-sm"
+          >
+            Fresh. Real. Made with love.
+          </motion.p>
 
-      <div className="container-shell hero-grid">
-        <motion.p {...fadeUp(0)} className="hero-eyebrow script-accent text-3xl text-coral md:text-4xl">
-          real food, real love
-        </motion.p>
+          <motion.h1
+            {...fadeUp(0.1)}
+            className="font-display leading-[0.95] font-bold tracking-tight"
+          >
+            <span className="block uppercase text-[clamp(2.4rem,7vw,4.75rem)] tracking-tighter text-teal">
+              Goodness
+            </span>
+            <span className="script-accent block text-[clamp(2.1rem,6vw,4rem)] leading-[1.1] text-coral">
+              in Every Bowl ♡
+            </span>
+          </motion.h1>
 
-        <div className="hero-headline">
-          <AnimatedText
-            as="h1"
-            text="Goodness in Every Bowl"
-            className="font-display text-[clamp(2.75rem,9vw,5.2rem)] leading-[0.98] font-medium tracking-tight text-ink"
-          />
+          <motion.p
+            {...fadeUp(0.2)}
+            className="max-w-md text-balance text-sm text-ink-soft sm:text-base md:text-lg"
+          >
+            Wholesome, gently cooked fresh dog food made with real ingredients
+            your dog will love — because they deserve the very best.
+          </motion.p>
+
+          <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-3">
+            <MagneticButton href="/shop" className="btn btn-teal text-sm md:text-base">
+              Shop Now
+            </MagneticButton>
+            <Link
+              href="/our-story"
+              className="btn btn-outline !border-teal !text-teal hover:!bg-teal hover:!text-cream-soft text-sm md:text-base"
+            >
+              Our Story
+            </Link>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp(0.4)}
+            className="mt-1 grid grid-cols-4 gap-2 border-t border-ink/10 pt-4 sm:gap-3 sm:pt-5"
+          >
+            {TRUST_ITEMS.map(({ Icon, label }) => (
+              <div key={label} className="flex flex-col items-center gap-1.5 text-center sm:gap-2">
+                <Icon className="h-5 w-5 shrink-0 text-teal sm:h-7 sm:w-7" />
+                <span className="text-[0.6rem] font-bold leading-tight text-ink-soft sm:text-xs">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        <motion.p
-          {...fadeUp(0.25)}
-          className="hero-subtext max-w-md text-balance text-lg text-ink-soft md:text-xl"
-        >
-          Fresh. Real. Made with love. Homemade dog food, gently cooked in
-          small batches right here in Melbourne — because they deserve the
-          best.
-        </motion.p>
-
-        <motion.div {...fadeUp(0.35)} className="hero-image relative">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-media shadow-[0_30px_60px_-20px_rgba(18,59,66,0.35)] lg:max-w-none">
-            <Image
-              src="/assets/photos/bowl-topdown-bone.jpg"
-              alt="A bowl of Paw-a-licious homemade dog food topped with a bone treat"
-              fill
-              priority
-              sizes="(min-width: 1024px) 44vw, (min-width: 640px) 60vw, 90vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="absolute -bottom-8 -left-4 h-32 w-28 overflow-hidden rounded-media border-4 border-cream-soft shadow-xl sm:h-40 sm:w-36 md:-left-10">
-            <Image
-              src="/assets/photos/dog-hoodie-waiting.jpg"
-              alt="Mitso's fellow taste-tester in a blue hoodie, waiting eagerly for his bowl"
-              fill
-              sizes="180px"
-              className="object-cover"
-            />
-          </div>
-
-          {!reduce && (
-            <motion.div
-              className="absolute -right-2 -top-6 h-24 w-24 overflow-hidden rounded-full ring-4 ring-cream-soft shadow-lg sm:h-28 sm:w-28 md:-right-6 animate-drift-a"
-            >
-              <Image
-                src="/assets/photos/badge-goodness-bowl.jpg"
-                alt="Paw-a-licious goodness-in-every-bowl badge featuring Mitso"
-                fill
-                sizes="112px"
-                className="object-cover"
-              />
-            </motion.div>
-          )}
-        </motion.div>
-
-        <motion.div {...fadeUp(0.45)} className="hero-cta flex flex-wrap items-center gap-4">
-          <Link href="/shop" className="btn btn-coral text-base">
-            Shop Paw-a-licious
-          </Link>
-          <Link href="/quiz" className="btn btn-outline text-base">
-            Find your dog&apos;s match
-          </Link>
-        </motion.div>
-
         <motion.div
-          {...fadeUp(0.55)}
-          className="hero-trust flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-ink/10 pt-6 text-sm font-bold text-ink-soft"
+          {...fadeUp(0.15)}
+          className="relative min-h-0 w-full overflow-hidden lg:h-full"
         >
-          {TRUST_ITEMS.map((item) => (
-            <span key={item.label} className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-coral" />
-              {item.label}
-            </span>
-          ))}
+          <Image
+            src={HERO_PHOTO.src}
+            alt={HERO_PHOTO.alt}
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
         </motion.div>
       </div>
     </section>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import ScrollReveal from "@/components/ScrollReveal";
 import MascotStories from "@/components/MascotStories";
+import ReviewsPlaceholderStrip from "@/components/ReviewsPlaceholderStrip";
+import VideoSection from "@/components/VideoSection";
 import { EASE_OUT } from "@/lib/animations";
 
 export const metadata: Metadata = {
@@ -84,7 +86,17 @@ export default function OurStoryPage() {
         </div>
       </section>
 
+      <VideoSection
+        src="/assets/videos/video-1.mp4"
+        poster="/assets/photos/food-prep-tubs-3.jpg"
+        eyebrow="Watch the goodness"
+        headline="Small batches, cooked with real care."
+        subtext="Real food, real love, real reactions — every recipe is prepared and portioned right here in Melbourne."
+      />
+
       <MascotStories />
+
+      <ReviewsPlaceholderStrip />
 
       <section className="bg-coral py-20 text-center text-cream-soft lg:py-24">
         <div className="container-shell">

@@ -9,13 +9,13 @@
   --color-cream-soft: #faf6ee;
   --color-cream-deep: #f3e6d3;
 
-  --color-coral: #ea4e2c;
+  --color-coral: #e8560f;
   --color-coral-dark: #c53c1f;
   --color-coral-deeper: #a02f18;
   --color-coral-light: #f6a78f;
   --color-coral-tint: #fde3da;
 
-  --color-teal: #1b7f8e;
+  --color-teal: #04889c;
   --color-teal-dark: #123b42;
   --color-teal-deeper: #0b2b30;
   --color-teal-light: #bfe3e6;
@@ -184,13 +184,13 @@ body {
 }
 
 .btn-teal {
-  background: var(--color-teal-dark);
+  background: var(--color-teal);
   color: var(--color-cream-soft);
-  box-shadow: 0 10px 24px -10px rgba(18, 59, 66, 0.5);
+  box-shadow: 0 10px 24px -10px rgba(4, 136, 156, 0.5);
 }
 
 .btn-teal:hover {
-  background: var(--color-teal-deeper);
+  background: var(--color-teal-dark);
   transform: translateY(-2px);
 }
 
@@ -270,8 +270,14 @@ img, video {
     "cta"
     "trust";
   column-gap: 3rem;
-  row-gap: 1.5rem;
+  row-gap: 0.6rem;
   align-items: start;
+}
+
+@media (min-width: 640px) {
+  .hero-grid {
+    row-gap: 1.5rem;
+  }
 }
 
 .hero-eyebrow { grid-area: eyebrow; }

@@ -9,13 +9,19 @@ import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
 import QtyStepper from "@/components/QtyStepper";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  compact = false,
+}: {
+  product: Product;
+  compact?: boolean;
+}) {
   const [sizeIdx, setSizeIdx] = useState(0);
   const [qty, setQty] = useState(1);
   const { addItem } = useCart();
   const size = SIZE_OPTIONS[sizeIdx];
-  const accentText = product.accent === "coral" ? "text-coral" : "text-teal-dark";
-  const accentBg = product.accent === "coral" ? "bg-coral" : "bg-teal-dark";
+  const accentBg = product.accent === "coral" ? "bg-coral" : "bg-teal";
+  const lowestPrice = SIZE_OPTIONS[0].price;
 
   function handleAdd() {
     addItem(
@@ -47,63 +53,75 @@ export default function ProductCard({ product }: { product: Product }) {
           className="object-cover transition-transform duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
         />
         {product.isFavourite && (
-          <span className="absolute left-4 top-4 rounded-chip bg-coral px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cream-soft">
-            Fan favourite
+          <span className="absolute right-4 top-4 rounded-full bg-teal px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cream-soft">
+            Fan fave!
           </span>
         )}
-        <span
-          className={`absolute right-4 top-4 rounded-chip ${accentBg} px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cream-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-        >
-          {product.tagline}
+      </Link>
+
+      <Link
+        href={`/shop/${product.slug}`}
+        className={`-mt-3 mx-4 flex items-center justify-center rounded-chip py-2 ${accentBg} shadow-sm`}
+      >
+        <span className="font-display text-sm font-bold uppercase tracking-wide text-cream-soft">
+          {product.name}
         </span>
       </Link>
 
-      <div className="mt-4 flex items-start justify-between gap-3">
-        <div>
-          <Link href={`/shop/${product.slug}`}>
-            <h3 className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-coral">
-              {product.name}
-            </h3>
-          </Link>
-          <p className="mt-1 text-sm text-ink-soft">{product.description}</p>
+      <div className="mt-3 flex items-start justify-between gap-3">
+        <p className="text-sm text-ink-soft">{product.description}</p>
+      </div>
+
+      {compact ? (
+        <div className="mt-3 flex items-center justify-between">
+          <span className="text-sm font-bold text-ink-soft">
+            {SIZE_OPTIONS.map((o) => o.label.replace(" tub", "")).join(" | ")}
+          </span>
+          <span className="font-display text-base font-bold text-coral-dark">
+            From {formatPrice(lowestPrice)}
+          </span>
         </div>
-        <span className={`font-display text-lg font-medium ${accentText} whitespace-nowrap`}>
-          {formatPrice(size.price)}
-        </span>
-      </div>
+      ) : (
+        <>
+          <div className="mt-4 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              {SIZE_OPTIONS.map((opt, i) => (
+                <button
+                  key={opt.label}
+                  type="button"
+                  onClick={() => setSizeIdx(i)}
+                  className={`rounded-chip border px-3 py-1.5 text-xs font-bold transition ${
+                    i === sizeIdx
+                      ? "border-ink bg-ink text-cream-soft"
+                      : "border-ink/20 text-ink-soft hover:border-ink/50"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+            <span className="font-display text-lg font-bold text-coral-dark whitespace-nowrap">
+              {formatPrice(size.price)}
+            </span>
+          </div>
 
-      <div className="mt-4 flex items-center gap-2">
-        {SIZE_OPTIONS.map((opt, i) => (
-          <button
-            key={opt.label}
-            type="button"
-            onClick={() => setSizeIdx(i)}
-            className={`rounded-chip border px-3 py-1.5 text-xs font-bold transition ${
-              i === sizeIdx
-                ? "border-ink bg-ink text-cream-soft"
-                : "border-ink/20 text-ink-soft hover:border-ink/50"
-            }`}
-          >
-            {opt.label}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-4 flex items-center gap-3">
-        <QtyStepper
-          qty={qty}
-          onIncrement={() => setQty((q) => Math.min(20, q + 1))}
-          onDecrement={() => setQty((q) => Math.max(1, q - 1))}
-          size="sm"
-        />
-        <button
-          type="button"
-          onClick={handleAdd}
-          className="btn btn-coral flex-1 !py-2.5 !text-sm"
-        >
-          Add to cart
-        </button>
-      </div>
+          <div className="mt-4 flex items-center gap-3">
+            <QtyStepper
+              qty={qty}
+              onIncrement={() => setQty((q) => Math.min(20, q + 1))}
+              onDecrement={() => setQty((q) => Math.max(1, q - 1))}
+              size="sm"
+            />
+            <button
+              type="button"
+              onClick={handleAdd}
+              className="btn btn-coral flex-1 !py-2.5 !text-sm"
+            >
+              Add to cart
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

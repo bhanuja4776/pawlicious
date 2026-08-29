@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/PageIntro";
 import ProductGrid from "@/components/ProductGrid";
+import FeatureBanner from "@/components/FeatureBanner";
 
 export const metadata: Metadata = {
   title: "Shop All Recipes — Paw-a-licious",
@@ -17,11 +18,13 @@ export default function ShopPage() {
         pick a size, and get it delivered fresh.
       </PageIntro>
 
-      <section className="bg-cream pb-24 pt-4 lg:pb-32">
+      <section className="bg-cream pb-16 pt-4 lg:pb-20">
         <div className="container-shell">
           <ProductGrid withFilters />
         </div>
       </section>
+
+      <FeatureBanner />
     </>
   );
 }

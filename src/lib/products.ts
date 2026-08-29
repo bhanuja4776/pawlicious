@@ -76,13 +76,13 @@ export const PRODUCTS: Product[] = [
     description: "Tender chicken with veggies & brown rice.",
     longDescription:
       "Our best-loved recipe: tender, gently-cooked chicken folded through sweet potato, pumpkin and brown rice, with a full garden of veggies mixed in. The one most dogs (and most humans watching them eat it) fall for first.",
-    accent: "coral",
-    heroImage: "/assets/photos/bowl-topdown-bone.jpg",
+    accent: "teal",
+    heroImage: "/assets/photos/lifestyle-setup-signage-3.jpg",
     gallery: [
+      "/assets/photos/lifestyle-setup-signage-3.jpg",
       "/assets/photos/bowl-topdown-bone.jpg",
       "/assets/photos/lifestyle-bowl-closeup.jpg",
       "/assets/photos/food-prep-tubs-1.jpg",
-      "/assets/photos/lifestyle-setup-signage-2.jpg",
     ],
     isFavourite: true,
   },
@@ -94,13 +94,13 @@ export const PRODUCTS: Product[] = [
     description: "Hearty beef with veggies & brown rice.",
     longDescription:
       "A hearty, rich recipe built around gently-cooked beef, brown rice and a full mix of real veggies. Made for dogs who like a deeper, heartier bowl — small-batch cooked the same way, every time.",
-    accent: "teal",
-    heroImage: "/assets/photos/lifestyle-setup-signage-1.jpg",
+    accent: "coral",
+    heroImage: "/assets/photos/lifestyle-setup-signage-3.jpg",
     gallery: [
+      "/assets/photos/lifestyle-setup-signage-3.jpg",
+      "/assets/photos/bowl-topdown-bone.jpg",
       "/assets/photos/lifestyle-setup-signage-1.jpg",
       "/assets/photos/food-prep-tubs-1.jpg",
-      "/assets/photos/ingredients-flatlay-1.jpg",
-      "/assets/photos/storefront-scene.jpg",
     ],
   },
   {
@@ -111,13 +111,13 @@ export const PRODUCTS: Product[] = [
     description: "Lean turkey with veggies & brown rice.",
     longDescription:
       "A lean, lighter recipe built on gently-cooked turkey, brown rice and the same full mix of real vegetables in every Paw-a-licious tub. A great everyday bowl for dogs who do well on leaner proteins.",
-    accent: "coral",
-    heroImage: "/assets/photos/lifestyle-bowl-closeup.jpg",
+    accent: "teal",
+    heroImage: "/assets/photos/lifestyle-setup-signage-3.jpg",
     gallery: [
+      "/assets/photos/lifestyle-setup-signage-3.jpg",
       "/assets/photos/lifestyle-bowl-closeup.jpg",
       "/assets/photos/ingredients-flatlay-2.jpg",
       "/assets/photos/food-prep-tubs-2.jpg",
-      "/assets/photos/lifestyle-setup-signage-3.jpg",
     ],
   },
   {
@@ -128,13 +128,13 @@ export const PRODUCTS: Product[] = [
     description: "Premium kangaroo with veggies & brown rice.",
     longDescription:
       "Our premium recipe, built around gently-cooked kangaroo — a lean, novel Australian protein — with sweet potato, pumpkin and the full Paw-a-licious veggie mix. A favourite for dogs who love trying something different.",
-    accent: "teal",
-    heroImage: "/assets/photos/food-prep-tubs-3.jpg",
+    accent: "coral",
+    heroImage: "/assets/photos/lifestyle-setup-signage-3.jpg",
     gallery: [
+      "/assets/photos/lifestyle-setup-signage-3.jpg",
       "/assets/photos/food-prep-tubs-3.jpg",
       "/assets/photos/ingredients-flatlay-1.jpg",
       "/assets/photos/lifestyle-setup-signage-2.jpg",
-      "/assets/photos/dog-hoodie-waiting.jpg",
     ],
   },
 ];
