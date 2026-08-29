@@ -61,7 +61,7 @@ export default function ProductCard({
 
       <Link
         href={`/shop/${product.slug}`}
-        className={`-mt-3 mx-4 flex items-center justify-center rounded-chip py-2 ${accentBg} shadow-sm`}
+        className={`mt-3 flex items-center justify-center rounded-chip py-2 ${accentBg} shadow-sm`}
       >
         <span className="font-display text-sm font-bold uppercase tracking-wide text-cream-soft">
           {product.name}
