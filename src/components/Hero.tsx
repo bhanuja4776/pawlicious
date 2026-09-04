@@ -5,13 +5,13 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT } from "@/lib/animations";
 import MagneticButton from "@/components/MagneticButton";
-import { HeartIcon, LeafIcon, PotIcon, PawIcon } from "@/components/icons";
+import { HeartIcon, LeafIcon, PotIcon, AustraliaIcon } from "@/components/icons";
 
 const TRUST_ITEMS = [
   { Icon: HeartIcon, label: "Made with real ingredients" },
   { Icon: LeafIcon, label: "No preservatives or additives" },
   { Icon: PotIcon, label: "Gently cooked for nutrition" },
-  { Icon: PawIcon, label: "Made in Australia" },
+  { Icon: AustraliaIcon, label: "Made in Australia" },
 ];
 
 const HERO_PHOTO = {
@@ -54,12 +54,24 @@ export default function Hero() {
             </span>
           </motion.h1>
 
+          <motion.div
+            {...fadeUp(0.18)}
+            className="flex items-center gap-3 text-teal/50"
+            aria-hidden
+          >
+            <span className="h-px w-10 bg-current" />
+            <HeartIcon className="h-3 w-3 shrink-0 text-coral" />
+            <span className="h-px w-10 bg-current" />
+          </motion.div>
+
           <motion.p
             {...fadeUp(0.2)}
             className="max-w-md text-balance text-sm text-ink-soft sm:text-base md:text-lg"
           >
-            Wholesome, gently cooked fresh dog food made with real ingredients
-            your dog will love — because they deserve the very best.
+            Made in small batches with real, wholefood ingredients and gently
+            cooked to lock in the natural goodness. No fillers, no shortcuts —
+            just honest food made with <span className="font-bold text-coral">love</span>,
+            for the ones who mean the world to us. ♡
           </motion.p>
 
           <motion.div {...fadeUp(0.3)} className="flex flex-wrap items-center gap-3">
@@ -80,7 +92,10 @@ export default function Hero() {
           >
             {TRUST_ITEMS.map(({ Icon, label }) => (
               <div key={label} className="flex flex-col items-center gap-1.5 text-center sm:gap-2">
-                <Icon className="h-5 w-5 shrink-0 text-teal sm:h-7 sm:w-7" />
+                <span className="relative inline-flex">
+                  <Icon className="h-5 w-5 shrink-0 text-teal sm:h-7 sm:w-7" />
+                  <HeartIcon className="absolute -right-1.5 -top-1 h-2.5 w-2.5 text-coral sm:-right-2 sm:h-3 sm:w-3" />
+                </span>
                 <span className="text-[0.6rem] font-bold leading-tight text-ink-soft sm:text-xs">
                   {label}
                 </span>

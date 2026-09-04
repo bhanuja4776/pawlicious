@@ -9,13 +9,7 @@ import { motion } from "framer-motion";
 const PROTEINS = ["All", "Chicken", "Beef", "Turkey", "Kangaroo"] as const;
 type SortKey = "featured" | "price-asc" | "price-desc" | "name";
 
-export default function ProductGrid({
-  withFilters = false,
-  compact = false,
-}: {
-  withFilters?: boolean;
-  compact?: boolean;
-}) {
+export default function ProductGrid({ withFilters = false }: { withFilters?: boolean }) {
   const [protein, setProtein] = useState<(typeof PROTEINS)[number]>("All");
   const [sort, setSort] = useState<SortKey>("featured");
 
@@ -84,7 +78,7 @@ export default function ProductGrid({
         >
           {products.map((product) => (
             <motion.div key={product.slug} variants={staggerItem}>
-              <ProductCard product={product} compact={compact} />
+              <ProductCard product={product} />
             </motion.div>
           ))}
         </motion.div>

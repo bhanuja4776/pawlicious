@@ -27,14 +27,22 @@ export function PotIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function PawIcon(props: SVGProps<SVGSVGElement>) {
+export function AustraliaIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
+      <path
+        d="M3 12.5c.5-2 2-3 3-4.5S7 4 9.5 4c1.5 0 2 1.5 3.5 1.5S15 4 17 5c1.5.8 1 2.5 2.5 3 1.2.4 1.5 1.8 1 2.8-.6 1.2.2 2-1 3-1 .8-.5 2-2 2.2-1.3.2-1.5 1.5-3 1.5-1 0-1.5-1-2.8-1-1.5 0-2 1.5-3.7 1-1-.3-1-1.5-2-1.8-1.5-.5-3-.7-3.5-2.2-.3-1-.3-2 .5-3Z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function HouseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
-      <ellipse cx="12" cy="16" rx="5" ry="4" />
-      <ellipse cx="5.5" cy="9" rx="2" ry="2.5" />
-      <ellipse cx="10.2" cy="5.5" rx="2" ry="2.5" />
-      <ellipse cx="13.8" cy="5.5" rx="2" ry="2.5" />
-      <ellipse cx="18.5" cy="9" rx="2" ry="2.5" />
+      <path d="M3 11 12 4l9 7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 10v9h14v-9" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -72,11 +80,24 @@ export function TruckIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function HouseIcon(props: SVGProps<SVGSVGElement>) {
+export function GiftIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
-      <path d="M3 11 12 4l9 7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M5 10v9h14v-9" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="3" y="9" width="18" height="4" strokeLinejoin="round" />
+      <rect x="4" y="13" width="16" height="8" strokeLinejoin="round" />
+      <path d="M12 9v12M12 9C10 5 5 5 5 8s3.5 1.5 7 1ZM12 9c2-4 7-4 7-1s-3.5 1.5-7 1Z" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function PawIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
+      <ellipse cx="12" cy="16" rx="5" ry="4" />
+      <ellipse cx="5.5" cy="9" rx="2" ry="2.5" />
+      <ellipse cx="10.2" cy="5.5" rx="2" ry="2.5" />
+      <ellipse cx="13.8" cy="5.5" rx="2" ry="2.5" />
+      <ellipse cx="18.5" cy="9" rx="2" ry="2.5" />
     </svg>
   );
 }

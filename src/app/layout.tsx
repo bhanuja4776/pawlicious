@@ -3,7 +3,7 @@ import { Fredoka, Caveat, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
-import ConditionalFooter from "@/components/ConditionalFooter";
+import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 
 const fredoka = Fredoka({
@@ -49,7 +49,7 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
-          <ConditionalFooter />
+          <Footer />
           <CartDrawer />
         </CartProvider>
       </body>

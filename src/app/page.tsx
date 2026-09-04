@@ -2,8 +2,6 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import HomeIntroBanner from "@/components/HomeIntroBanner";
 import ProductGrid from "@/components/ProductGrid";
-import IngredientsShowcase from "@/components/IngredientsShowcase";
-import HomeFooter from "@/components/HomeFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
@@ -27,7 +25,7 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="mt-10">
-            <ProductGrid compact />
+            <ProductGrid />
           </div>
 
           <div className="mt-10 flex justify-center">
@@ -37,10 +35,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <IngredientsShowcase />
-
-      <HomeFooter />
     </>
   );
 }

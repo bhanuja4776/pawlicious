@@ -9,19 +9,12 @@ import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
 import QtyStepper from "@/components/QtyStepper";
 
-export default function ProductCard({
-  product,
-  compact = false,
-}: {
-  product: Product;
-  compact?: boolean;
-}) {
+export default function ProductCard({ product }: { product: Product }) {
   const [sizeIdx, setSizeIdx] = useState(0);
   const [qty, setQty] = useState(1);
   const { addItem } = useCart();
   const size = SIZE_OPTIONS[sizeIdx];
   const accentBg = product.accent === "coral" ? "bg-coral" : "bg-teal";
-  const lowestPrice = SIZE_OPTIONS[0].price;
 
   function handleAdd() {
     addItem(
@@ -72,56 +65,39 @@ export default function ProductCard({
         <p className="text-sm text-ink-soft">{product.description}</p>
       </div>
 
-      {compact ? (
-        <div className="mt-3 flex items-center justify-between">
-          <span className="text-sm font-bold text-ink-soft">
-            {SIZE_OPTIONS.map((o) => o.label.replace(" tub", "")).join(" | ")}
-          </span>
-          <span className="font-display text-base font-bold text-coral-dark">
-            From {formatPrice(lowestPrice)}
-          </span>
-        </div>
-      ) : (
-        <>
-          <div className="mt-4 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              {SIZE_OPTIONS.map((opt, i) => (
-                <button
-                  key={opt.label}
-                  type="button"
-                  onClick={() => setSizeIdx(i)}
-                  className={`rounded-chip border px-3 py-1.5 text-xs font-bold transition ${
-                    i === sizeIdx
-                      ? "border-ink bg-ink text-cream-soft"
-                      : "border-ink/20 text-ink-soft hover:border-ink/50"
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-            <span className="font-display text-lg font-bold text-coral-dark whitespace-nowrap">
-              {formatPrice(size.price)}
-            </span>
-          </div>
-
-          <div className="mt-4 flex items-center gap-3">
-            <QtyStepper
-              qty={qty}
-              onIncrement={() => setQty((q) => Math.min(20, q + 1))}
-              onDecrement={() => setQty((q) => Math.max(1, q - 1))}
-              size="sm"
-            />
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          {SIZE_OPTIONS.map((opt, i) => (
             <button
+              key={opt.label}
               type="button"
-              onClick={handleAdd}
-              className="btn btn-coral flex-1 !py-2.5 !text-sm"
+              onClick={() => setSizeIdx(i)}
+              className={`rounded-chip border px-3 py-1.5 text-xs font-bold transition ${
+                i === sizeIdx
+                  ? "border-ink bg-ink text-cream-soft"
+                  : "border-ink/20 text-ink-soft hover:border-ink/50"
+              }`}
             >
-              Add to cart
+              {opt.label}
             </button>
-          </div>
-        </>
-      )}
+          ))}
+        </div>
+        <span className="font-display text-lg font-bold text-coral-dark whitespace-nowrap">
+          {formatPrice(size.price)}
+        </span>
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
+        <QtyStepper
+          qty={qty}
+          onIncrement={() => setQty((q) => Math.min(20, q + 1))}
+          onDecrement={() => setQty((q) => Math.max(1, q - 1))}
+          size="sm"
+        />
+        <button type="button" onClick={handleAdd} className="btn btn-coral flex-1 !py-2.5 !text-sm">
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import ScrollReveal from "@/components/ScrollReveal";
 import VideoSection from "@/components/VideoSection";
-import { NASTIES_FREE, SHARED_INGREDIENTS } from "@/lib/products";
+import IngredientsShowcase from "@/components/IngredientsShowcase";
+import { NASTIES_FREE } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Ingredients — Paw-a-licious",
@@ -55,29 +56,13 @@ export default function IngredientsPage() {
         </div>
       </section>
 
-      <section className="bg-cream-soft py-20 lg:py-28">
-        <div className="container-shell">
-          <ScrollReveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-teal">In every single recipe</p>
-            <h2 className="mt-3 font-display text-[clamp(2rem,4.5vw,3.25rem)] font-medium text-ink text-balance">
-              The full ingredient list
-            </h2>
-          </ScrollReveal>
+      <IngredientsShowcase />
 
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {SHARED_INGREDIENTS.map((ing, i) => (
-              <ScrollReveal
-                key={ing}
-                delay={i * 0.03}
-                className="flex flex-col items-center justify-center gap-2 rounded-card bg-cream px-4 py-8 text-center"
-              >
-                <span className="font-display text-lg font-medium text-ink">{ing}</span>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal delay={0.15} className="mt-16 text-center">
-            <p className="eyebrow text-coral-dark">Plus your dog&apos;s chosen protein</p>
+      <section className="bg-cream py-4">
+        <div className="container-shell py-10 text-center">
+          <ScrollReveal>
+            <p className="eyebrow text-teal">Plus coconut oil and psyllium husk in every batch</p>
+            <p className="mt-2 eyebrow text-coral-dark">and your dog&apos;s chosen protein</p>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               {PROTEINS.map((p) => (
                 <span
