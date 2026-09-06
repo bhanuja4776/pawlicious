@@ -109,8 +109,8 @@ export default function IngredientsPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.15} className="relative aspect-[4/5] w-full overflow-hidden rounded-media">
             <Image
-              src="/assets/photos/lifestyle-setup-signage-2.jpg"
-              alt="Paw-a-licious styled table scene with product tubs and fresh vegetables"
+              src="/assets/photos/raw-beef-block.jpg"
+              alt="Fresh sweet potato, mushrooms, broccoli, cucumber and carrot alongside real beef"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-cover"

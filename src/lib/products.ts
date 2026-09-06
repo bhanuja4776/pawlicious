@@ -80,9 +80,9 @@ export const PRODUCTS: Product[] = [
     heroImage: "/assets/photos/raw-chicken.jpg",
     gallery: [
       "/assets/photos/raw-chicken.jpg",
-      "/assets/photos/bowl-topdown-bone.jpg",
-      "/assets/photos/food-prep-tubs-1.jpg",
-      "/assets/photos/hero-mitso.jpg",
+      "/assets/photos/bowlbone-chicken.jpg",
+      "/assets/photos/mixing-chicken.jpg",
+      "/assets/photos/dog-chicken.jpg",
     ],
     isFavourite: true,
   },
@@ -98,9 +98,9 @@ export const PRODUCTS: Product[] = [
     heroImage: "/assets/photos/raw-beef.jpg",
     gallery: [
       "/assets/photos/raw-beef.jpg",
-      "/assets/photos/lifestyle-setup-signage-3.jpg",
-      "/assets/photos/food-prep-tubs-2.jpg",
-      "/assets/photos/hero-pawsome.jpg",
+      "/assets/photos/bowlbone-beef.jpg",
+      "/assets/photos/mixing-beef.jpg",
+      "/assets/photos/dog-beef.jpg",
     ],
   },
   {
@@ -115,9 +115,9 @@ export const PRODUCTS: Product[] = [
     heroImage: "/assets/photos/raw-turkey.jpg",
     gallery: [
       "/assets/photos/raw-turkey.jpg",
-      "/assets/photos/bowl-topdown-bone.jpg",
-      "/assets/photos/food-prep-tubs-3.jpg",
-      "/assets/photos/dog-hoodie-waiting.jpg",
+      "/assets/photos/bowlbone-turkey.jpg",
+      "/assets/photos/mixing-turkey.jpg",
+      "/assets/photos/dog-turkey.jpg",
     ],
   },
   {
@@ -132,9 +132,9 @@ export const PRODUCTS: Product[] = [
     heroImage: "/assets/photos/raw-kangaroo.jpg",
     gallery: [
       "/assets/photos/raw-kangaroo.jpg",
-      "/assets/photos/lifestyle-setup-signage-3.jpg",
-      "/assets/photos/food-prep-tubs-1.jpg",
-      "/assets/photos/hero-mitso.jpg",
+      "/assets/photos/bowl-topdown-bone.jpg",
+      "/assets/photos/mixing-kangaroo.jpg",
+      "/assets/photos/dog-kangaroo.jpg",
     ],
   },
 ];
