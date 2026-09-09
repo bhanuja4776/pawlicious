@@ -9,7 +9,7 @@ const MASCOTS = [
   {
     name: "Mitso",
     role: "Head Taste-Tester",
-    image: "/assets/photos/lifestyle-bowl-closeup.jpg",
+    image: "/assets/photos/hero-mitso.jpg",
     blurb:
       "Our resident golden-haired supervisor. Mitso checks every recipe the same way — nose first, tail second, bowl licked clean third.",
   },
@@ -19,6 +19,13 @@ const MASCOTS = [
     image: "/assets/photos/dog-hoodie-waiting.jpg",
     blurb:
       "One of our other regular taste-testers — always first to the kitchen, blue hoodie and all, the moment a fresh batch comes out.",
+  },
+  {
+    name: "Paw-some",
+    role: "Professional Napper",
+    image: "/assets/photos/hero-pawsome.jpg",
+    blurb:
+      "Naps through most of the day, but somehow always wakes up the exact second a fresh tub gets opened. Never once missed a bowl.",
   },
 ];
 
@@ -38,7 +45,7 @@ export default function MascotStories() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
+        <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {MASCOTS.map((mascot, i) => (
             <motion.div
               key={mascot.name}

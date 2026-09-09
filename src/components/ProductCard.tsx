@@ -8,6 +8,11 @@ import { SIZE_OPTIONS } from "@/lib/products";
 import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
 import QtyStepper from "@/components/QtyStepper";
+import { HeartIcon } from "@/components/icons";
+
+const PROTEIN_ICONS: Partial<Record<Product["slug"], string>> = {
+  kangaroo: "/assets/icons/kangaroo-icon.png",
+};
 
 export default function ProductCard({ product }: { product: Product }) {
   const [sizeIdx, setSizeIdx] = useState(0);
@@ -15,6 +20,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const size = SIZE_OPTIONS[sizeIdx];
   const accentBg = product.accent === "coral" ? "bg-coral" : "bg-teal";
+  const proteinIconSrc = PROTEIN_ICONS[product.slug];
 
   function handleAdd() {
     addItem(
@@ -54,11 +60,21 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <Link
         href={`/shop/${product.slug}`}
-        className={`mt-3 flex items-center justify-center rounded-chip py-2 ${accentBg} shadow-sm`}
+        className={`mt-3 flex items-center justify-center gap-2 rounded-chip py-2 ${accentBg} shadow-sm`}
       >
+        {proteinIconSrc && (
+          <Image
+            src={proteinIconSrc}
+            alt=""
+            width={497}
+            height={350}
+            className="h-4 w-auto shrink-0"
+          />
+        )}
         <span className="font-display text-sm font-bold uppercase tracking-wide text-cream-soft">
           {product.name}
         </span>
+        <HeartIcon className="h-3.5 w-3.5 shrink-0 text-cream-soft" />
       </Link>
 
       <div className="mt-3 flex items-start justify-between gap-3">

@@ -132,7 +132,7 @@ export const PRODUCTS: Product[] = [
     heroImage: "/assets/photos/raw-kangaroo.jpg",
     gallery: [
       "/assets/photos/raw-kangaroo.jpg",
-      "/assets/photos/bowl-topdown-bone.jpg",
+      "/assets/photos/food-prep-tubs-4.jpg",
       "/assets/photos/mixing-kangaroo.jpg",
       "/assets/photos/dog-kangaroo.jpg",
     ],

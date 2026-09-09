@@ -33,7 +33,7 @@ const STORY_BLOCKS = [
   },
   {
     image: "/assets/photos/lifestyle-setup-signage-3.jpg",
-    alt: "Styled table scene with Paw-a-licious signage, product tubs and fresh vegetables",
+    alt: "Top-down white bowl of Paw-a-licious food finished with a dog-bone treat, on a wood table",
     eyebrow: "No fillers, no nasties",
     title: "If we wouldn't recognise it, it's not going in the bowl.",
     copy: "No fillers, no preservatives, no artificial colours or flavours — just real ingredients you can actually name. It's the same standard we'd want for our own food, applied to theirs.",
@@ -88,7 +88,7 @@ export default function OurStoryPage() {
 
       <VideoSection
         src="/assets/videos/video-1.mp4"
-        poster="/assets/photos/food-prep-tubs-3.jpg"
+        poster="/assets/photos/food-prep-tubs-2.jpg"
         eyebrow="Watch the goodness"
         headline="Small batches, cooked with real care."
         subtext="Real food, real love, real reactions — every recipe is prepared and portioned right here in Melbourne."

@@ -79,7 +79,7 @@ export default function IngredientsPage() {
 
       <VideoSection
         src="/assets/videos/video-2.mp4"
-        poster="/assets/photos/lifestyle-bowl-closeup.jpg"
+        poster="/assets/photos/bowl-topdown-bone.jpg"
         eyebrow="Straight from the bowl"
         headline="This is what real food looks like at dinner time."
         subtext="Gently cooked, portioned fresh, and served the way dogs actually enjoy it."

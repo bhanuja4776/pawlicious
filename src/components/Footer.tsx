@@ -20,18 +20,6 @@ const DELIVERY_LINES = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-cream">
-      {/* Hidden SVG def for the organic "blob" clip on the top footer photo */}
-      <svg width="0" height="0" className="absolute" aria-hidden>
-        <defs>
-          <clipPath id="footer-blob" clipPathUnits="objectBoundingBox">
-            <path d="M0.2,0 C0.05,0.02 0.0128,0.13 0.02,0.22 C0.0272,0.31 0.24,0.399 0.24,0.5 C0.24,0.601 0.0272,0.69 0.02,0.78 C0.0128,0.87 0.05,0.98 0.2,1 L0.86,1 C0.94,1 1,0.94 1,0.87 L1,0.13 C1,0.06 0.94,0 0.86,0 Z" />
-          </clipPath>
-          <clipPath id="footer-blob-2" clipPathUnits="objectBoundingBox">
-            <path d="M0.15,0 C0.03,0.02 0,0.1 0.05,0.17 C0.1,0.24 0.1,0.24 0.04,0.32 C0.01,0.37 0,0.41 0,0.45 L0,0.85 C0,0.94 0.06,1 0.15,1 L0.85,1 C0.94,1 1,0.94 1,0.85 L1,0.15 C1,0.06 0.94,0 0.85,0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
       <div
         aria-hidden
         className="pointer-events-none absolute -left-10 top-0 h-40 w-48 bg-coral-tint sm:h-52 sm:w-64"
@@ -39,9 +27,9 @@ export default function Footer() {
       />
 
       <div className="container-shell relative py-16 lg:py-20">
-        <div className="grid grid-cols-[0.85fr_1fr] items-start gap-3 sm:grid-cols-[0.85fr_1fr] sm:gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 items-start gap-10 sm:grid-cols-[0.85fr_1fr] sm:gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative z-10 min-w-0">
-            <p className="text-sm leading-relaxed text-ink sm:text-base lg:text-lg">
+            <p className="text-base leading-relaxed text-ink lg:text-lg">
               Homemade dog food, gently cooked in small batches in Melbourne.
               Real ingredients, real love, made in Australia.
             </p>
@@ -93,8 +81,8 @@ export default function Footer() {
 
           <div className="relative flex flex-col gap-3 sm:gap-4">
             <div
-              className="relative aspect-[3/4] w-full overflow-hidden shadow-lg"
-              style={{ clipPath: "url(#footer-blob)" }}
+              className="relative aspect-[3/4] w-full shadow-lg"
+              style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
                 src="/assets/photos/footer-dog-running.jpg"
@@ -105,8 +93,8 @@ export default function Footer() {
               />
             </div>
             <div
-              className="relative aspect-[4/3.5] w-full overflow-hidden shadow-lg"
-              style={{ clipPath: "url(#footer-blob-2)" }}
+              className="relative aspect-[4/3.5] w-full shadow-lg"
+              style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
                 src="/assets/photos/footer-bowl-mat.jpg"
