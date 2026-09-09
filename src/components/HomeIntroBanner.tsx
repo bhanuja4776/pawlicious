@@ -1,60 +1,33 @@
-import ScrollReveal from "@/components/ScrollReveal";
-import { HeartIcon, HouseIcon, BowlIcon, PotIcon, DogFaceIcon } from "@/components/icons";
+import { HeartIcon, BowlIcon, DogFaceIcon } from "@/components/icons";
 
 const ITEMS = [
-  {
-    Icon: BowlIcon,
-    title: "Real ingredients you can see",
-    copy: "We use real, wholefood ingredients you'd recognise in your own kitchen.",
-  },
-  {
-    Icon: PotIcon,
-    title: "Gently cooked for goodness",
-    copy: "Slow cooked in small batches to lock in natural nutrients and flavour.",
-  },
-  {
-    Icon: DogFaceIcon,
-    title: "Irresistible taste dogs love",
-    copy: "Delicious, wholesome recipes that even the fussiest eaters adore.",
-  },
-  {
-    Icon: HeartIcon,
-    title: "Goodness in every bowl",
-    copy: "Balanced, nourishing meals made with love in every single batch.",
-  },
+  { Icon: BowlIcon, label: "Real ingredients you can see" },
+  { Icon: DogFaceIcon, label: "Irresistible taste dogs love" },
+  { Icon: HeartIcon, label: "Goodness in every bowl" },
 ];
 
 export default function HomeIntroBanner() {
   return (
-    <section className="bg-cream">
-      <div className="bg-teal py-10">
-        <div className="container-shell flex items-center justify-center gap-4 text-center">
-          <HeartIcon className="h-7 w-7 shrink-0 text-cream-soft/80 sm:h-9 sm:w-9" />
+    <section className="bg-teal py-8 lg:py-10">
+      <div className="container-shell flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+        <div className="flex items-center gap-3">
+          <HeartIcon className="h-7 w-7 shrink-0 text-cream-soft" />
           <p className="script-accent text-xl leading-[1.2] text-cream-soft sm:text-2xl">
             Made like you would{" "}
             <span className="underline decoration-coral-light decoration-2 underline-offset-4">
-              at home
+              at home, with love.
             </span>
-            , with love.
           </p>
-          <HouseIcon className="hidden h-9 w-9 shrink-0 text-cream-soft/50 sm:block" />
         </div>
-      </div>
 
-      <div className="container-shell py-14 lg:py-16">
-        <ScrollReveal className="mx-auto flex max-w-xl flex-col divide-y divide-teal/15">
-          {ITEMS.map(({ Icon, title, copy }) => (
-            <div key={title} className="flex items-start gap-5 py-6 first:pt-0 last:pb-0">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-soft">
-                <Icon className="h-7 w-7 text-teal" />
-              </span>
-              <div>
-                <p className="font-display text-lg font-bold text-teal">{title}</p>
-                <p className="mt-1 text-sm text-ink-soft">{copy}</p>
-              </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+          {ITEMS.map(({ Icon, label }) => (
+            <div key={label} className="flex flex-col items-center gap-2 text-center">
+              <Icon className="h-8 w-8 shrink-0 text-cream-soft" />
+              <span className="max-w-[9rem] text-sm font-bold text-cream-soft">{label}</span>
             </div>
           ))}
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );
