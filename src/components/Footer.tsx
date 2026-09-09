@@ -78,22 +78,22 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="relative order-first grid grid-cols-2 gap-3 lg:order-none lg:flex lg:flex-col lg:gap-4">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem_1rem_1rem_1rem] shadow-lg sm:rounded-[3rem_1.5rem_1.5rem_1.5rem] lg:aspect-[4/3] lg:rounded-[5rem_1.5rem_1.5rem_1.5rem]">
+          <div className="relative hidden lg:flex lg:flex-col lg:gap-4">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[5rem_1.5rem_1.5rem_1.5rem] shadow-lg">
               <Image
                 src="/assets/photos/footer-dog-running.jpg"
                 alt="A happy, healthy Paw-a-licious dog"
                 fill
-                sizes="(min-width: 1024px) 40vw, 45vw"
+                sizes="40vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1rem_1rem_2rem_1rem] shadow-lg sm:rounded-[1.5rem_1.5rem_3rem_1.5rem] lg:aspect-[4/3] lg:rounded-[1.5rem_1.5rem_5rem_1.5rem]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem_1.5rem_5rem_1.5rem] shadow-lg">
               <Image
                 src="/assets/photos/footer-bowl-mat.jpg"
                 alt="A bowl of Paw-a-licious homemade dog food on a woven mat"
                 fill
-                sizes="(min-width: 1024px) 40vw, 45vw"
+                sizes="40vw"
                 className="object-cover"
               />
             </div>
