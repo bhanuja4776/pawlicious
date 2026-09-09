@@ -27,17 +27,6 @@ export function PotIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function AustraliaIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" {...props}>
-      <path
-        d="M3 12.5c.5-2 2-3 3-4.5S7 4 9.5 4c1.5 0 2 1.5 3.5 1.5S15 4 17 5c1.5.8 1 2.5 2.5 3 1.2.4 1.5 1.8 1 2.8-.6 1.2.2 2-1 3-1 .8-.5 2-2 2.2-1.3.2-1.5 1.5-3 1.5-1 0-1.5-1-2.8-1-1.5 0-2 1.5-3.7 1-1-.3-1-1.5-2-1.8-1.5-.5-3-.7-3.5-2.2-.3-1-.3-2 .5-3Z"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function HouseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>

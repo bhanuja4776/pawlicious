@@ -94,7 +94,7 @@ export default function CartDrawer() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="mx-6 mt-4 flex items-center gap-3 rounded-card bg-teal-tint px-4 py-3 text-teal-deeper">
+                  <div className="mx-6 mt-4 flex items-center gap-3 rounded-card bg-teal-tint px-4 py-3 text-teal">
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal text-cream-soft">
                       ✓
                     </span>
@@ -128,7 +128,7 @@ export default function CartDrawer() {
                         <span className="text-coral">free delivery</span>
                       </p>
                     ) : (
-                      <p className="mb-2 text-sm font-bold text-teal-dark">
+                      <p className="mb-2 text-sm font-bold text-teal">
                         You&apos;ve unlocked free delivery! 🎉
                       </p>
                     )}

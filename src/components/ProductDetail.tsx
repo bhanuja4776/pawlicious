@@ -27,7 +27,7 @@ export default function ProductDetail({
   const [showStickyBar, setShowStickyBar] = useState(false);
   const { addItem } = useCart();
   const size = SIZE_OPTIONS[sizeIdx];
-  const accentText = product.accent === "coral" ? "text-coral" : "text-teal-dark";
+  const accentText = product.accent === "coral" ? "text-coral" : "text-teal";
 
   useEffect(() => {
     function onScroll() {

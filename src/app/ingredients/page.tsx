@@ -86,7 +86,7 @@ export default function IngredientsPage() {
         dark={false}
       />
 
-      <section className="bg-teal-dark py-20 text-cream-soft lg:py-28">
+      <section className="bg-teal py-20 text-cream-soft lg:py-28">
         <div className="container-shell grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
             <p className="eyebrow text-coral-light">What you won&apos;t find</p>

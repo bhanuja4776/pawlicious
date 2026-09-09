@@ -56,7 +56,7 @@ export default function ProductTabs({ protein }: { protein: string }) {
                   {SHARED_INGREDIENTS.map((ing) => (
                     <span
                       key={ing}
-                      className="rounded-chip bg-teal-tint px-4 py-2 text-sm font-bold text-teal-dark"
+                      className="rounded-chip bg-teal-tint px-4 py-2 text-sm font-bold text-teal"
                     >
                       {ing}
                     </span>
@@ -108,10 +108,10 @@ export default function ProductTabs({ protein }: { protein: string }) {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {OPTIONAL_BOOSTS.map((boost) => (
                   <div key={boost.title} className="rounded-card bg-teal-tint p-5">
-                    <h4 className="font-display text-lg font-medium text-teal-deeper">
+                    <h4 className="font-display text-lg font-medium text-teal">
                       {boost.title}
                     </h4>
-                    <p className="mt-2 text-sm text-teal-dark">{boost.detail}</p>
+                    <p className="mt-2 text-sm text-teal">{boost.detail}</p>
                   </div>
                 ))}
               </div>

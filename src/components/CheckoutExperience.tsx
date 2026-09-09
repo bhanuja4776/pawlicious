@@ -68,8 +68,8 @@ export default function CheckoutExperience() {
           </div>
 
           <div className="h-fit rounded-card bg-teal-tint p-7">
-            <h2 className="font-display text-2xl font-medium text-teal-deeper">Order total</h2>
-            <div className="mt-6 flex flex-col gap-3 text-teal-dark">
+            <h2 className="font-display text-2xl font-medium text-teal">Order total</h2>
+            <div className="mt-6 flex flex-col gap-3 text-teal">
               <div className="flex justify-between">
                 <span>Subtotal</span>
                 <span className="font-bold">{formatPrice(subtotal)}</span>
@@ -83,7 +83,7 @@ export default function CheckoutExperience() {
                   Add {formatPrice(amountToFreeShipping)} more for free delivery.
                 </p>
               )}
-              <div className="mt-2 flex justify-between border-t border-teal-dark/20 pt-3 text-lg">
+              <div className="mt-2 flex justify-between border-t border-teal/20 pt-3 text-lg">
                 <span className="font-bold">Total</span>
                 <span className="font-display font-medium">{formatPrice(total)}</span>
               </div>
@@ -98,7 +98,7 @@ export default function CheckoutExperience() {
               {placed ? "Order noted ✓" : "Place order (design preview)"}
             </button>
             {placed && (
-              <p className="mt-4 text-sm text-teal-deeper">
+              <p className="mt-4 text-sm text-teal">
                 Thanks! This is a design preview, so nothing was actually
                 ordered. Contact us on Instagram{" "}
                 <a href="https://instagram.com/paw_a_licious_dogfood" className="link-underline font-bold" target="_blank" rel="noreferrer">
@@ -107,7 +107,7 @@ export default function CheckoutExperience() {
                 to place a real order.
               </p>
             )}
-            <p className="mt-5 text-xs text-teal-dark/70">
+            <p className="mt-5 text-xs text-teal/70">
               Free pickup available in Balwyn North and Templestowe Lower.
             </p>
           </div>

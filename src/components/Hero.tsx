@@ -5,13 +5,13 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT } from "@/lib/animations";
 import MagneticButton from "@/components/MagneticButton";
-import { HeartIcon, LeafIcon, PotIcon, AustraliaIcon } from "@/components/icons";
+import { HeartIcon, LeafIcon, PotIcon, BowlIcon, PinIcon } from "@/components/icons";
 
 const TRUST_ITEMS = [
-  { Icon: HeartIcon, label: "Made with real ingredients" },
+  { Icon: BowlIcon, label: "Made with real ingredients" },
   { Icon: LeafIcon, label: "No preservatives or additives" },
   { Icon: PotIcon, label: "Gently cooked for nutrition" },
-  { Icon: AustraliaIcon, label: "Made in Australia" },
+  { Icon: PinIcon, label: "Made in Australia" },
 ];
 
 const HERO_PHOTO = {
@@ -114,7 +114,7 @@ export default function Hero() {
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="object-cover object-[center_25%]"
           />
         </motion.div>
       </div>
