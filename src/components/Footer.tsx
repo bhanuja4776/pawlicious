@@ -79,28 +79,28 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="relative flex flex-col gap-3 sm:gap-4">
+          <div className="relative flex flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
             <div
-              className="relative aspect-[3/4] w-full shadow-lg sm:max-h-[360px]"
+              className="relative aspect-[3/4] w-full shadow-lg"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
                 src="/assets/photos/footer-dog-running.jpg"
                 alt="A happy, healthy Paw-a-licious dog"
                 fill
-                sizes="(min-width: 1024px) 40vw, 50vw"
+                sizes="(min-width: 1024px) 20vw, 50vw"
                 className="object-cover"
               />
             </div>
             <div
-              className="relative aspect-[4/3.5] w-full shadow-lg sm:max-h-[280px]"
+              className="relative aspect-[4/3.5] w-full shadow-lg"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
                 src="/assets/photos/footer-bowl-mat.jpg"
                 alt="A bowl of Paw-a-licious homemade dog food on a woven mat"
                 fill
-                sizes="(min-width: 1024px) 40vw, 50vw"
+                sizes="(min-width: 1024px) 20vw, 50vw"
                 className="object-cover"
               />
             </div>
