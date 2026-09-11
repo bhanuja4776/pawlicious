@@ -14,7 +14,7 @@ const EXPLORE_LINKS = [
 const DELIVERY_LINES = [
   { Icon: PinIcon, text: `Melbourne Metro delivery — $${DELIVERY_FEE.toFixed(2)}` },
   { Icon: GiftIcon, text: `Free delivery over $${FREE_SHIPPING_THRESHOLD}` },
-  { Icon: HeartIcon, text: "Victoria only, Melbourne Metro area" },
+  { Icon: HeartIcon, text: "Melbourne Metro area only" },
 ];
 
 export default function Footer() {
@@ -40,7 +40,7 @@ export default function Footer() {
       <div className="container-shell relative py-16 lg:py-20">
         <div className="grid grid-cols-[0.85fr_1fr] items-start gap-3 sm:gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative z-10 min-w-0">
-            <p className="text-sm leading-relaxed text-ink sm:text-base lg:text-lg">
+            <p className="text-sm leading-snug text-ink sm:text-base sm:leading-relaxed lg:text-lg">
               Homemade dog food, gently cooked in small batches in Melbourne.
               Real ingredients, real love, made in Australia.
             </p>
@@ -49,7 +49,7 @@ export default function Footer() {
             </p>
             <span className="mt-1 block h-0.5 w-24 bg-teal sm:w-32 lg:w-40" />
 
-            <div className="mt-8 lg:mt-10">
+            <div className="mt-6 lg:mt-10">
               <p className="eyebrow flex items-center gap-2 text-teal">
                 Explore <HeartIcon className="h-4 w-4 text-teal" />
               </p>
@@ -58,7 +58,7 @@ export default function Footer() {
                   <li key={href}>
                     <Link
                       href={href}
-                      className="flex items-center gap-2.5 py-2.5 font-display text-base font-bold text-ink transition hover:text-coral sm:gap-3 sm:py-3 sm:text-lg"
+                      className="flex items-center gap-2.5 py-1.5 font-display text-base font-bold text-ink transition hover:text-coral sm:gap-3 sm:py-3 sm:text-lg"
                     >
                       <Icon className="h-4 w-4 shrink-0 text-coral sm:h-5 sm:w-5" />
                       {label}
@@ -68,11 +68,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="mt-8 lg:mt-10">
+            <div className="mt-6 lg:mt-10">
               <p className="eyebrow flex items-center gap-2 text-teal">
                 Delivery &amp; pickup <HeartIcon className="h-4 w-4 text-teal" />
               </p>
-              <ul className="mt-3 flex flex-col gap-2.5 lg:mt-4 lg:gap-3">
+              <ul className="mt-3 flex flex-col gap-1.5 lg:mt-4 lg:gap-3">
                 {DELIVERY_LINES.map(({ Icon, text }) => (
                   <li key={text} className="flex items-center gap-2.5 text-sm text-ink-soft sm:gap-3 sm:text-base">
                     <Icon className="h-4 w-4 shrink-0 text-teal sm:h-5 sm:w-5" />
@@ -82,16 +82,15 @@ export default function Footer() {
                 <li className="flex items-start gap-2.5 pt-1 text-sm text-ink-soft sm:gap-3 sm:text-base">
                   <HouseIcon className="mt-0.5 h-4 w-4 shrink-0 text-coral sm:h-5 sm:w-5" />
                   <span>
-                    Free pickup —{" "}
-                    {PICKUP_LOCATIONS.map((loc) => `${loc}, VIC`).join(" · ")}
+                    Free pickup — {PICKUP_LOCATIONS.join(" · ")}, VIC
                   </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="relative flex flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
-            <div className="relative aspect-[5/8] w-full sm:aspect-[3/4]">
+          <div className="relative flex max-w-[210px] flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
+            <div className="relative aspect-[5/8.5] w-full sm:aspect-[3/4]">
               <PawIcon
                 aria-hidden
                 fill="currentColor"
@@ -117,7 +116,7 @@ export default function Footer() {
               </div>
             </div>
             <div
-              className="relative aspect-[4/3.8] w-full bg-teal p-[3px] shadow-lg sm:aspect-[4/3.5]"
+              className="relative aspect-[4/4] w-full bg-teal p-[3px] shadow-lg sm:aspect-[4/3.5]"
               style={{ clipPath: "url(#footer-blob-2)" }}
             >
               <div
