@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, CONTACT } from "@/lib/utils";
 import QtyStepper from "@/components/QtyStepper";
 import PageIntro from "@/components/PageIntro";
 
@@ -40,9 +40,20 @@ export default function CheckoutExperience() {
   return (
     <>
       <PageIntro eyebrow="Checkout" title="Your order summary">
-        Secure payment via Stripe. Questions about your order? Message us on
-        Instagram or call{" "}
-        <a href="tel:0412626627" className="link-underline font-bold">0412 626 627</a>.
+        Secure payment via Stripe. Questions about your order? Message us on{" "}
+        <a
+          href={CONTACT.instagramHref}
+          target="_blank"
+          rel="noreferrer"
+          className="link-underline font-bold"
+        >
+          Instagram
+        </a>{" "}
+        or call{" "}
+        <a href={CONTACT.phoneHref} className="link-underline font-bold">
+          {CONTACT.phone}
+        </a>
+        .
       </PageIntro>
 
       <section className="bg-cream pb-24 pt-4 lg:pb-32">
