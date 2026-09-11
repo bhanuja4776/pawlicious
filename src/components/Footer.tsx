@@ -23,7 +23,7 @@ export default function Footer() {
       <svg width="0" height="0" className="absolute" aria-hidden>
         <defs>
           <clipPath id="footer-blob" clipPathUnits="objectBoundingBox">
-            <path d="M0.15,0 C0.04,0.01 0.02,0.06 0.02,0.1 C0.02,0.16 0.16,0.18 0.24,0.25 C0.29,0.3 0.28,0.32 0.25,0.37 C0.2,0.44 0.03,0.44 0,0.56 C-0.01,0.66 0.02,0.85 0.09,0.95 C0.11,0.98 0.13,1 0.15,1 L0.86,1 C0.94,1 1,0.94 1,0.87 L1,0.13 C1,0.06 0.94,0 0.86,0 Z" />
+            <path d="M0.08,0 C0.02,0.03 0.01,0.09 0.01,0.15 C0.01,0.25 0.2,0.45 0.25,0.59 C0.28,0.68 0.2,0.75 0.2,0.83 C0.2,0.9 0.3,0.96 0.36,1 L0.86,1 C0.94,1 1,0.94 1,0.87 L1,0.13 C1,0.06 0.94,0 0.86,0 Z" />
           </clipPath>
           <clipPath id="footer-blob-2" clipPathUnits="objectBoundingBox">
             <path d="M0.15,0 C0.03,0.02 0,0.1 0.05,0.17 C0.1,0.24 0.1,0.24 0.04,0.32 C0.01,0.37 0,0.41 0,0.45 L0,0.85 C0,0.94 0.06,1 0.15,1 L0.85,1 C0.94,1 1,0.94 1,0.85 L1,0.15 C1,0.06 0.94,0 0.85,0 Z" />
@@ -96,7 +96,7 @@ export default function Footer() {
                 aria-hidden
                 fill="currentColor"
                 stroke="none"
-                className="absolute -left-3 top-[18%] z-10 h-7 w-7 -rotate-12 text-teal sm:-left-4 sm:h-8 sm:w-8"
+                className="absolute -left-3 top-[54%] z-10 h-7 w-7 -rotate-12 text-teal sm:-left-4 sm:h-8 sm:w-8"
               />
               <div
                 className="relative h-full w-full bg-teal p-[3px] shadow-lg"
