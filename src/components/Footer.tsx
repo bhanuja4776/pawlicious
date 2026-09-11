@@ -81,7 +81,7 @@ export default function Footer() {
 
           <div className="relative flex flex-col gap-3 sm:gap-4">
             <div
-              className="relative aspect-[3/4] w-full shadow-lg"
+              className="relative aspect-[3/4] w-full shadow-lg sm:max-h-[360px]"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
@@ -93,7 +93,7 @@ export default function Footer() {
               />
             </div>
             <div
-              className="relative aspect-[4/3.5] w-full shadow-lg"
+              className="relative aspect-[4/3.5] w-full shadow-lg sm:max-h-[280px]"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
