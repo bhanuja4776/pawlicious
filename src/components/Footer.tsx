@@ -19,7 +19,7 @@ const DELIVERY_LINES = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-cream">
+    <footer className="relative overflow-hidden bg-cream" style={{ transform: "translateZ(0)" }}>
       <svg width="0" height="0" className="absolute" aria-hidden>
         <defs>
           <clipPath id="footer-blob" clipPathUnits="objectBoundingBox">
