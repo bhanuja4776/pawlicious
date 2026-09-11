@@ -91,29 +91,47 @@ export default function Footer() {
           </div>
 
           <div className="relative flex flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
-            <div
-              className="relative aspect-[5/8] w-full shadow-lg sm:aspect-[3/4]"
-              style={{ clipPath: "url(#footer-blob)" }}
-            >
-              <Image
-                src="/assets/photos/footer-dog-running.jpg"
-                alt="A happy, healthy Paw-a-licious dog"
-                fill
-                sizes="(min-width: 1024px) 20vw, 50vw"
-                className="object-cover"
+            <div className="relative aspect-[5/8] w-full sm:aspect-[3/4]">
+              <PawIcon
+                aria-hidden
+                fill="currentColor"
+                stroke="none"
+                className="absolute -left-3 top-[30%] z-10 h-7 w-7 -rotate-12 text-teal sm:-left-4 sm:h-8 sm:w-8"
               />
+              <div
+                className="relative h-full w-full bg-teal p-[3px] shadow-lg"
+                style={{ clipPath: "url(#footer-blob)" }}
+              >
+                <div
+                  className="relative h-full w-full overflow-hidden"
+                  style={{ clipPath: "url(#footer-blob)" }}
+                >
+                  <Image
+                    src="/assets/photos/footer-dog-running.jpg"
+                    alt="A happy, healthy Paw-a-licious dog"
+                    fill
+                    sizes="(min-width: 1024px) 20vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             </div>
             <div
-              className="relative aspect-[4/3.8] w-full shadow-lg sm:aspect-[4/3.5]"
+              className="relative aspect-[4/3.8] w-full bg-teal p-[3px] shadow-lg sm:aspect-[4/3.5]"
               style={{ clipPath: "url(#footer-blob-2)" }}
             >
-              <Image
-                src="/assets/photos/footer-bowl-mat.jpg"
-                alt="A bowl of Paw-a-licious homemade dog food on a woven mat"
-                fill
-                sizes="(min-width: 1024px) 20vw, 50vw"
-                className="object-cover"
-              />
+              <div
+                className="relative h-full w-full overflow-hidden"
+                style={{ clipPath: "url(#footer-blob-2)" }}
+              >
+                <Image
+                  src="/assets/photos/footer-bowl-mat.jpg"
+                  alt="A bowl of Paw-a-licious homemade dog food on a woven mat"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
