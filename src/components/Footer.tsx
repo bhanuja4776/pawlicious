@@ -92,7 +92,7 @@ export default function Footer() {
 
           <div className="relative flex flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
             <div
-              className="relative aspect-[3/5.4] w-full shadow-lg sm:aspect-[3/4]"
+              className="relative aspect-[5/8] w-full shadow-lg sm:aspect-[3/4]"
               style={{ clipPath: "url(#footer-blob)" }}
             >
               <Image
@@ -104,7 +104,7 @@ export default function Footer() {
               />
             </div>
             <div
-              className="relative aspect-[4/5] w-full shadow-lg sm:aspect-[4/3.5]"
+              className="relative aspect-[4/3.8] w-full shadow-lg sm:aspect-[4/3.5]"
               style={{ clipPath: "url(#footer-blob-2)" }}
             >
               <Image
