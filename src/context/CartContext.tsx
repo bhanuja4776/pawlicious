@@ -38,6 +38,7 @@ type CartContextValue = {
   incrementQty: (slug: string, grams: number, max?: number) => void;
   decrementQty: (slug: string, grams: number, min?: number) => void;
   removeItem: (slug: string, grams: number) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
@@ -49,20 +50,38 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [lastAdded, setLastAdded] = useState<CartLine | null>(null);
   const [hydrated, setHydrated] = useState(false);
+  // Captured once, synchronously, during the initial render — before any
+  // effect (including OrderSuccessBanner's, a descendant, which strips this
+  // query param via history.replaceState) has had a chance to run. Reading
+  // window.location.search from inside an effect instead would race that
+  // cleanup, since child effects commit before parent effects.
+  const [justCompletedOrder] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("order") === "success"
+  );
 
   useEffect(() => {
     // One-time hydration from localStorage on mount. Intentionally
     // synchronous: the cart must reflect saved state before first paint,
     // and this only ever runs once (empty dependency array).
+    //
+    // A completed Stripe checkout redirects back here with ?order=success —
+    // skip restoring the old cart in that case (and wipe the stored copy)
+    // rather than racing OrderSuccessBanner's own clearCart() call.
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (raw) setLines(JSON.parse(raw));
+      if (justCompletedOrder) {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } else {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        if (raw) setLines(JSON.parse(raw));
+      }
     } catch {
       // ignore malformed storage
     }
     setHydrated(true);
-  }, []);
+  }, [justCompletedOrder]);
 
   useEffect(() => {
     if (!hydrated) return;
@@ -133,6 +152,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);
+  const clearCart = useCallback(() => setLines([]), []);
 
   const itemCount = useMemo(
     () => lines.reduce((sum, l) => sum + l.qty, 0),
@@ -164,6 +184,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     incrementQty,
     decrementQty,
     removeItem,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

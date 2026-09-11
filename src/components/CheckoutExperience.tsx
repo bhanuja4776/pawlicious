@@ -10,15 +10,38 @@ import PageIntro from "@/components/PageIntro";
 
 export default function CheckoutExperience() {
   const { lines, incrementQty, decrementQty, subtotal, deliveryFee, amountToFreeShipping } = useCart();
-  const [placed, setPlaced] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const shipping = lines.length === 0 || amountToFreeShipping <= 0 ? 0 : deliveryFee;
   const total = subtotal + shipping;
+
+  async function handleCheckout() {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lines: lines.map((l) => ({ slug: l.slug, grams: l.grams, qty: l.qty })),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setLoading(false);
+    }
+  }
 
   return (
     <>
       <PageIntro eyebrow="Checkout" title="Your order summary">
-        This is a design preview of checkout — no payment is processed here.
-        For real orders, message us on Instagram or call {" "}
+        Secure payment via Stripe. Questions about your order? Message us on
+        Instagram or call{" "}
         <a href="tel:0412626627" className="link-underline font-bold">0412 626 627</a>.
       </PageIntro>
 
@@ -91,21 +114,14 @@ export default function CheckoutExperience() {
 
             <button
               type="button"
-              disabled={lines.length === 0}
-              onClick={() => setPlaced(true)}
+              disabled={lines.length === 0 || loading}
+              onClick={handleCheckout}
               className="btn btn-teal mt-7 w-full disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {placed ? "Order noted ✓" : "Place order (design preview)"}
+              {loading ? "Redirecting to payment…" : "Checkout with Stripe"}
             </button>
-            {placed && (
-              <p className="mt-4 text-sm text-teal">
-                Thanks! This is a design preview, so nothing was actually
-                ordered. Contact us on Instagram{" "}
-                <a href="https://instagram.com/paw_a_licious_dogfood" className="link-underline font-bold" target="_blank" rel="noreferrer">
-                  @paw_a_licious_dogfood
-                </a>{" "}
-                to place a real order.
-              </p>
+            {error && (
+              <p className="mt-4 text-sm font-bold text-coral-dark">{error}</p>
             )}
             <p className="mt-5 text-xs text-teal/70">
               Free pickup available in Balwyn North and Templestowe Lower.

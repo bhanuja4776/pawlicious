@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import HomeIntroBanner from "@/components/HomeIntroBanner";
+import OrderSuccessBanner from "@/components/OrderSuccessBanner";
 import ProductGrid from "@/components/ProductGrid";
 import ScrollReveal from "@/components/ScrollReveal";
 import { PawIcon } from "@/components/icons";
@@ -24,6 +25,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <OrderSuccessBanner />
 
       <HomeIntroBanner />
 

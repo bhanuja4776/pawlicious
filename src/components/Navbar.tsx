@@ -97,26 +97,6 @@ export default function Navbar() {
           <div className="flex items-center gap-2 md:gap-3">
             <button
               type="button"
-              aria-label="Search"
-              className="hidden h-10 w-10 items-center justify-center rounded-full text-ink transition hover:bg-ink/5 sm:flex"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m21 21-4.3-4.3" strokeLinecap="round" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              aria-label="Account"
-              className="hidden h-10 w-10 items-center justify-center rounded-full text-ink transition hover:bg-ink/5 sm:flex"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" strokeLinecap="round" />
-              </svg>
-            </button>
-            <button
-              type="button"
               aria-label={`Open cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
               onClick={openCart}
               className="relative flex h-10 w-10 items-center justify-center rounded-full text-ink transition hover:bg-ink/5"
