@@ -52,7 +52,7 @@ export default function OurStoryPage() {
 
       <section className="bg-cream py-4">
         <div className="container-shell flex flex-col gap-24 py-16 lg:gap-32 lg:py-24">
-          {STORY_BLOCKS.map((block) => (
+          {STORY_BLOCKS.map((block, index) => (
             <div
               key={block.title}
               className={`grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
@@ -70,6 +70,7 @@ export default function OurStoryPage() {
                   src={block.image}
                   alt={block.alt}
                   fill
+                  priority={index === 0}
                   sizes="(min-width: 1024px) 44vw, 90vw"
                   className="object-cover"
                 />

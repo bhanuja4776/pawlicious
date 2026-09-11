@@ -31,6 +31,7 @@ export default function IngredientsPage() {
               src="/assets/photos/ingredients-flatlay-1.jpg"
               alt="Overhead flatlay of pumpkin, mushrooms, broccoli, cauliflower, carrot and zucchini surrounding bowls of finished Paw-a-licious food"
               fill
+              priority
               sizes="(min-width: 640px) 60vw, 90vw"
               className="object-cover"
             />
