@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { PRODUCTS } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { staggerContainer, staggerItem } from "@/lib/animations";
@@ -12,6 +12,16 @@ type SortKey = "featured" | "price-asc" | "price-desc" | "name";
 export default function ProductGrid({ withFilters = false }: { withFilters?: boolean }) {
   const [protein, setProtein] = useState<(typeof PROTEINS)[number]>("All");
   const [sort, setSort] = useState<SortKey>("featured");
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [protein]);
 
   const products = useMemo(() => {
     let list = PRODUCTS.slice();
@@ -66,23 +76,24 @@ export default function ProductGrid({ withFilters = false }: { withFilters?: boo
         </div>
       )}
 
-      {products.length === 0 ? (
-        <p className="py-16 text-center text-ink-soft">No recipes match that filter yet.</p>
-      ) : (
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer(0.1)}
-          className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {products.map((product) => (
-            <motion.div key={product.slug} variants={staggerItem}>
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
+      <div ref={resultsRef}>
+        {products.length === 0 ? (
+          <p className="py-16 text-center text-ink-soft">No recipes match that filter yet.</p>
+        ) : (
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={staggerContainer(0.1)}
+            className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {products.map((product) => (
+              <motion.div key={product.slug} variants={staggerItem}>
+                <ProductCard product={product} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 }
