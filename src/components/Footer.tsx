@@ -27,9 +27,9 @@ export default function Footer() {
       />
 
       <div className="container-shell relative py-16 lg:py-20">
-        <div className="grid grid-cols-1 items-start gap-10 sm:grid-cols-[0.85fr_1fr] sm:gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-[0.85fr_1fr] items-start gap-3 sm:gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative z-10 min-w-0">
-            <p className="text-base leading-relaxed text-ink lg:text-lg">
+            <p className="text-sm leading-relaxed text-ink sm:text-base lg:text-lg">
               Homemade dog food, gently cooked in small batches in Melbourne.
               Real ingredients, real love, made in Australia.
             </p>
