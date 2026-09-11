@@ -27,7 +27,7 @@ export default function Footer() {
       />
 
       <div className="container-shell relative py-16 lg:py-20">
-        <div className="grid grid-cols-[0.85fr_1fr] items-start gap-3 sm:items-center sm:gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-[0.85fr_1fr] items-center gap-3 sm:gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative z-10 min-w-0">
             <p className="text-sm leading-relaxed text-ink sm:text-base lg:text-lg">
               Homemade dog food, gently cooked in small batches in Melbourne.
@@ -81,7 +81,7 @@ export default function Footer() {
 
           <div className="relative flex flex-col gap-3 sm:ml-auto sm:w-full sm:max-w-[300px] sm:gap-4 lg:max-w-[340px]">
             <div
-              className="relative aspect-[3/4] w-full shadow-lg"
+              className="relative aspect-[3/5.4] w-full shadow-lg sm:aspect-[3/4]"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
@@ -93,7 +93,7 @@ export default function Footer() {
               />
             </div>
             <div
-              className="relative aspect-[4/3.5] w-full shadow-lg"
+              className="relative aspect-[4/5] w-full shadow-lg sm:aspect-[4/3.5]"
               style={{ clipPath: "inset(0 round 2rem)" }}
             >
               <Image
