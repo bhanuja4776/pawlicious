@@ -14,9 +14,9 @@ const INGREDIENT_PHOTOS = [
 
 export default function IngredientsShowcase() {
   return (
-    <section className="bg-cream-soft py-4">
+    <section className="bg-white py-4">
       <div className="container-shell py-14 lg:py-16">
-        <div className="rounded-media bg-cream-soft px-4 py-10 sm:px-8 lg:px-12">
+        <div className="rounded-media bg-white px-4 py-10 sm:px-8 lg:px-12">
           <ScrollReveal className="text-center">
             <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.25rem)] font-bold text-teal">
               What&apos;s Inside Matters

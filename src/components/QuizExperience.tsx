@@ -82,7 +82,7 @@ export default function QuizExperience() {
   const progress = Math.min(100, (step / TOTAL_STEPS) * 100);
 
   return (
-    <section className="min-h-[85vh] bg-gradient-to-b from-teal-tint/50 via-cream to-cream pb-24 pt-32 lg:pt-40">
+    <section className="min-h-[85vh] bg-white pb-24 pt-32 lg:pt-40">
       <div className="container-shell mx-auto max-w-2xl">
         {step <= TOTAL_STEPS - 1 && (
           <div className="mb-10">

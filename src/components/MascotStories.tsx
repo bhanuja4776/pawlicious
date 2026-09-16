@@ -31,7 +31,7 @@ const MASCOTS = [
 
 export default function MascotStories() {
   return (
-    <section className="bg-cream-soft py-24 lg:py-32">
+    <section className="bg-white py-24 lg:py-32">
       <div className="container-shell">
         <ScrollReveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-coral-dark">Not customer reviews — the real critics</p>

@@ -46,7 +46,7 @@ export default function HomeIntroBanner() {
         </div>
       </section>
 
-      <section className="bg-cream-soft py-14 lg:py-20">
+      <section className="bg-white py-14 lg:py-20">
         <div className="container-shell relative">
           <div className="mx-auto max-w-2xl">
             {FEATURES.map(({ Icon, title, desc }, i) => (

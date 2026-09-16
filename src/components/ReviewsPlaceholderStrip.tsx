@@ -6,7 +6,7 @@ const PLACEHOLDER_SLOTS = [1, 2, 3];
 
 export default function ReviewsPlaceholderStrip() {
   return (
-    <ScrollReveal className="border-y border-ink/10 bg-cream-deep/60 py-10">
+    <ScrollReveal className="border-y border-ink/10 bg-white py-10">
       <div className="container-shell">
         <p className="mb-6 text-center text-xs font-bold uppercase tracking-widest text-ink-faint">
           Template preview — real customer reviews go here

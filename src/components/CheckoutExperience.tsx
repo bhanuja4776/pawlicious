@@ -56,7 +56,7 @@ export default function CheckoutExperience() {
         .
       </PageIntro>
 
-      <section className="bg-cream pb-24 pt-4 lg:pb-32">
+      <section className="bg-white pb-24 pt-4 lg:pb-32">
         <div className="container-shell grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
           <div>
             {lines.length === 0 ? (

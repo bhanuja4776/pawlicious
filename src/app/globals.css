@@ -81,7 +81,7 @@ html {
 }
 
 body {
-  background: var(--color-cream);
+  background: #fff;
   color: var(--color-ink);
   font-family: var(--font-body), "Segoe UI", sans-serif;
   overflow-x: hidden;

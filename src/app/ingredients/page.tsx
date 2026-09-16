@@ -24,7 +24,7 @@ export default function IngredientsPage() {
         rice, coconut oil and psyllium husk. That&apos;s it.
       </PageIntro>
 
-      <section className="bg-cream py-4">
+      <section className="bg-white py-4">
         <div className="container-shell grid grid-cols-1 gap-4 py-14 sm:grid-cols-3 lg:py-20">
           <ScrollReveal className="relative col-span-1 aspect-[4/5] overflow-hidden rounded-media sm:col-span-2 sm:row-span-2 sm:aspect-auto">
             <Image
@@ -59,7 +59,7 @@ export default function IngredientsPage() {
 
       <IngredientsShowcase />
 
-      <section className="bg-cream py-4">
+      <section className="bg-white py-4">
         <div className="container-shell py-10 text-center">
           <ScrollReveal>
             <p className="eyebrow text-teal">Plus coconut oil and psyllium husk in every batch</p>

@@ -129,7 +129,7 @@ export default function ProductDetail({
       </section>
 
       {related.length > 0 && (
-        <section className="border-t border-ink/10 bg-cream-soft py-20 lg:py-24">
+        <section className="border-t border-ink/10 bg-white py-20 lg:py-24">
           <div className="container-shell">
             <ScrollReveal>
               <p className="eyebrow text-coral-dark">You might also like</p>

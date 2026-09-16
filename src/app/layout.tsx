@@ -45,7 +45,7 @@ export default function RootLayout({
       lang="en"
       className={`${fredoka.variable} ${caveat.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-ink font-body">
+      <body className="min-h-full flex flex-col bg-white text-ink font-body">
         <CartProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

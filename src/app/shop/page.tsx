@@ -18,7 +18,7 @@ export default function ShopPage() {
         pick a size, and get it delivered fresh.
       </PageIntro>
 
-      <section className="bg-cream pb-16 pt-4 lg:pb-20">
+      <section className="bg-white pb-16 pt-4 lg:pb-20">
         <div className="container-shell">
           <ProductGrid withFilters />
         </div>

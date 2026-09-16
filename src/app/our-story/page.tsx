@@ -50,7 +50,7 @@ export default function OurStoryPage() {
         in small batches, right here in Melbourne.
       </PageIntro>
 
-      <section className="bg-cream py-4">
+      <section className="bg-white py-4">
         <div className="container-shell flex flex-col gap-24 py-16 lg:gap-32 lg:py-24">
           {STORY_BLOCKS.map((block, index) => (
             <div

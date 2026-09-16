@@ -12,7 +12,7 @@ type PageIntroProps = {
 
 export default function PageIntro({ eyebrow, title, children }: PageIntroProps) {
   return (
-    <section className="bg-cream-soft pb-14 pt-32 lg:pb-20 lg:pt-40">
+    <section className="bg-white pb-14 pt-32 lg:pb-20 lg:pt-40">
       <div className="container-shell">
         <ScrollReveal>
           <p className="eyebrow text-coral-dark">{eyebrow}</p>
