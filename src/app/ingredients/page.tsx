@@ -24,8 +24,8 @@ export default function IngredientsPage() {
         rice, coconut oil and psyllium husk. That&apos;s it.
       </PageIntro>
 
-      <section className="bg-white py-4">
-        <div className="container-shell grid grid-cols-1 gap-4 py-14 sm:grid-cols-3 lg:py-20">
+      <section className="bg-white">
+        <div className="container-shell grid grid-cols-1 gap-4 pb-14 sm:grid-cols-3 lg:pb-20">
           <ScrollReveal className="relative col-span-1 aspect-[4/5] overflow-hidden rounded-media sm:col-span-2 sm:row-span-2 sm:aspect-auto">
             <Image
               src="/assets/photos/ingredients-flatlay-1.jpg"
