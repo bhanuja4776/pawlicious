@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -17,18 +18,14 @@ const NAV_LINKS = [
 
 function Wordmark() {
   return (
-    <span className="flex flex-col leading-none">
-      <span className="font-display text-2xl font-semibold leading-none tracking-tight md:text-[1.7rem]">
-        <span className="text-coral">Paw-a-l</span>
-        <span className="text-teal">icious</span>
-        <span className="ml-1 text-coral">♡</span>
-      </span>
-      <span className="mt-1 flex items-center justify-center gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-teal">
-        <span className="h-px w-3 bg-teal/50" />
-        Homemade dog food
-        <span className="h-px w-3 bg-teal/50" />
-      </span>
-    </span>
+    <Image
+      src="/assets/logo/paw-a-licious-logo.png"
+      alt="Paw-a-licious — Homemade Dog Food"
+      width={824}
+      height={238}
+      priority
+      className="h-9 w-auto sm:h-10 md:h-11"
+    />
   );
 }
 
