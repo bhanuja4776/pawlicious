@@ -21,8 +21,8 @@ function Wordmark() {
     <Image
       src="/assets/logo/paw-a-licious-logo.png"
       alt="Paw-a-licious — Homemade Dog Food"
-      width={824}
-      height={238}
+      width={647}
+      height={154}
       priority
       className="h-9 w-auto sm:h-10 md:h-11"
     />
