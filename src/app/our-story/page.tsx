@@ -4,7 +4,7 @@ import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import ScrollReveal from "@/components/ScrollReveal";
 import MascotStories from "@/components/MascotStories";
-import ReviewsPlaceholderStrip from "@/components/ReviewsPlaceholderStrip";
+import ReviewsStrip from "@/components/ReviewsStrip";
 import VideoSection from "@/components/VideoSection";
 import { EASE_OUT } from "@/lib/animations";
 
@@ -97,7 +97,7 @@ export default function OurStoryPage() {
 
       <MascotStories />
 
-      <ReviewsPlaceholderStrip />
+      <ReviewsStrip />
 
       <section className="bg-coral py-20 text-center text-cream-soft lg:py-24">
         <div className="container-shell">
