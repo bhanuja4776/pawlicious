@@ -233,27 +233,15 @@ export default function HowToServePage() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <Image
-            src={`${A}/section-closing.png`}
-            alt="Real food. Happier dogs. Goodness in every bowl."
-            width={686}
-            height={238}
-            unoptimized
-            className="hidden h-auto w-full sm:block"
-          />
-          <div className="text-center sm:hidden">
-            <p className="script-accent text-[2.75rem] leading-[1.05] text-teal-dark">
-              Real food. <span className="text-coral">Happier dogs.</span>
-            </p>
-            <div className="relative mx-auto mt-6 aspect-[266/220] w-full max-w-[320px] overflow-hidden rounded-media">
-              <Image
-                src={`${A}/bowl.png`}
-                alt="A bowl of Paw-a-licious homemade dog food"
-                fill
-                unoptimized
-                className="object-cover"
-              />
-            </div>
+          <div className="-mx-5 sm:mx-0">
+            <Image
+              src={`${A}/section-closing.png`}
+              alt="Real food. Happier dogs. Goodness in every bowl."
+              width={686}
+              height={238}
+              unoptimized
+              className="h-auto w-full"
+            />
           </div>
           <div className="mt-6 text-center">
             <Link href="/shop" className="btn btn-coral">
