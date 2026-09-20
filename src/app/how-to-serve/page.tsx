@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { HeartIcon, PawIcon } from "@/components/icons";
+import { HeartIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "How to Serve — Paw-a-licious",
@@ -72,7 +72,7 @@ export default function HowToServePage() {
   return (
     <div className="bg-white pb-20 pt-24 lg:pb-28 lg:pt-32">
       <div className="mx-auto w-full max-w-[686px] space-y-8 px-5 sm:px-0 lg:space-y-10">
-        <div className="hidden sm:block">
+        <div className="-mx-5 sm:mx-0">
           <h1 className="sr-only">How to Serve Paw-a-licious</h1>
           <Image
             src={`${A}/section-hero.png`}
@@ -83,32 +83,6 @@ export default function HowToServePage() {
             unoptimized
             className="h-auto w-full"
           />
-        </div>
-        <div className="overflow-hidden rounded-media bg-teal-tint sm:hidden">
-          <div className="p-7">
-            <h1>
-              <span className="script-accent block text-[2.75rem] text-teal-dark">How to Serve</span>
-              <span className="mt-1 flex items-center gap-2 font-display text-[2.1rem] font-medium leading-none text-coral">
-                Paw-a-licious
-                <HeartIcon className="h-7 w-7 shrink-0" />
-              </span>
-            </h1>
-            <p className="mt-4 text-lg text-ink-soft">
-              From our freezer to their bowl — simple, fresh &amp; made with love.
-            </p>
-          </div>
-          <div className="relative aspect-[4/3.4]">
-            <Image
-              src={`${A}/hero-dog.png`}
-              alt="A happy dog looking out of a window"
-              fill
-              unoptimized
-              className="object-cover"
-            />
-            <p className="script-accent absolute bottom-4 right-4 max-w-[8rem] text-right text-3xl leading-[0.95] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]">
-              Happy dogs happier lives
-            </p>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2">
@@ -194,37 +168,46 @@ export default function HowToServePage() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <Image
-            src={`${A}/section-feeding.png`}
-            alt="Feeding Guide. A general guide to help you find the right amount for your dog. Small dogs (up to 10kg): 150–250g per meal. Medium dogs (10–25kg): 250–450g per meal. Large dogs (25kg+): 450–650g per meal."
-            width={686}
-            height={252}
-            unoptimized
-            className="hidden h-auto w-full sm:block"
-          />
-          <div className="sm:hidden">
-            <h2 className="flex items-center gap-3 script-accent text-[2.5rem] text-teal-dark">
-              Feeding Guide <PawIcon fill="currentColor" stroke="none" className="h-7 w-7 text-coral" />
-            </h2>
-            <p className="mt-2 text-ink-soft">
+          <div style={{ containerType: "inline-size" }}>
+            <Image
+              src={`${A}/feeding-heading.png`}
+              alt="Feeding Guide"
+              width={320}
+              height={57}
+              unoptimized
+              className="h-auto"
+              style={{ width: "max(14.5rem, 46cqw)" }}
+            />
+            <p className="mt-1 text-[#1f2d38]" style={{ fontSize: "max(0.8rem, 2.3cqw)" }}>
               A general guide to help you find the right amount for your dog.
             </p>
-            <div className="mt-5 divide-y divide-ink/10 overflow-hidden rounded-card border border-ink/10 bg-white">
-              {FEEDING.map(({ label, amount, src, w, h }) => (
-                <div key={label} className="grid grid-cols-[4rem_1fr] items-center gap-x-3 px-4 py-4">
-                  <Image
-                    src={`${A}/${src}.png`}
-                    alt=""
-                    width={w}
-                    height={h}
-                    unoptimized
-                    className="justify-self-center"
-                    style={{ width: w, height: h }}
-                  />
-                  <div>
-                    <p className="font-bold text-ink">{label}</p>
-                    <p className="font-display text-lg text-coral">{amount}</p>
+            <div className="mt-4 overflow-hidden rounded-[14px] border bg-white"
+              style={{ borderColor: "#efe6e1" }}>
+              {FEEDING.map(({ label, amount, src, w, h }, i) => (
+                <div
+                  key={label}
+                  className={`grid grid-cols-[19%_40%_41%] items-center ${i > 0 ? "border-t" : ""}`}
+                  style={{ minHeight: "max(3.1rem, 6.9cqw)", borderColor: "#efe6e1" }}
+                >
+                  <div className="flex justify-center py-2">
+                    <Image
+                      src={`${A}/${src}.png`}
+                      alt=""
+                      width={w}
+                      height={h}
+                      unoptimized
+                      style={{ width: `max(${Math.round(w * 0.72)}px, ${((w / 686) * 100).toFixed(2)}cqw)`, height: "auto" }}
+                    />
                   </div>
+                  <p className="pr-2 leading-tight text-[#1f2d38]" style={{ fontSize: "max(0.7rem, 2.3cqw)" }}>
+                    {label}
+                  </p>
+                  <p
+                    className="flex items-center self-stretch border-l pl-[6%] leading-tight text-[#1f2d38]"
+                    style={{ fontSize: "max(0.7rem, 2.3cqw)", borderColor: "#efe6e1" }}
+                  >
+                    {amount}
+                  </p>
                 </div>
               ))}
             </div>
