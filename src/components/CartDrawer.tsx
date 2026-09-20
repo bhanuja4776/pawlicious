@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/utils";
 import QtyStepper from "@/components/QtyStepper";
+import DeliveryInfo from "@/components/DeliveryInfo";
 import { EASE_OUT } from "@/lib/animations";
 
 export default function CartDrawer() {
@@ -196,9 +197,7 @@ export default function CartDrawer() {
                       {formatPrice(subtotal)}
                     </span>
                   </div>
-                  <p className="mb-4 text-xs text-ink-faint">
-                    Shipping &amp; taxes calculated at checkout. Melbourne Metro delivery $14.95, free over $250.
-                  </p>
+                  <DeliveryInfo className="mb-4 text-xs text-ink-faint" />
                   <Link
                     href="/checkout"
                     onClick={closeCart}

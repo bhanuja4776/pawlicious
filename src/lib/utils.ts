@@ -18,3 +18,10 @@ export const CONTACT = {
 };
 
 export const PICKUP_LOCATIONS = ["Balwyn North", "Templestowe Lower"];
+
+export const DELIVERY_INFO = {
+  metro: `Melbourne Metro delivery – ${formatPrice(DELIVERY_FEE)}`,
+  free: `Free delivery over $${FREE_SHIPPING_THRESHOLD}`,
+  pickup: `Free pickup – ${PICKUP_LOCATIONS.join(" or ")}`,
+  pickupNote: "Please send us an email for exact pick up location after order is placed.",
+};

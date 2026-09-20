@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, PICKUP_LOCATIONS, DELIVERY_FEE, FREE_SHIPPING_THRESHOLD } from "@/lib/utils";
-import { HeartIcon, HouseIcon, BowlIcon, PawIcon, LeafIcon, PinIcon, GiftIcon } from "@/components/icons";
+import { CONTACT, DELIVERY_INFO } from "@/lib/utils";
+import { HeartIcon, HouseIcon, BowlIcon, PawIcon, LeafIcon, PinIcon, GiftIcon, PotIcon } from "@/components/icons";
 
 const EXPLORE_LINKS = [
   { href: "/", label: "Home", Icon: HouseIcon },
@@ -9,12 +9,13 @@ const EXPLORE_LINKS = [
   { href: "/quiz", label: "Dog Quiz", Icon: PawIcon },
   { href: "/our-story", label: "Our Story", Icon: HeartIcon },
   { href: "/ingredients", label: "Ingredients", Icon: LeafIcon },
+  { href: "/how-to-serve", label: "How to Serve", Icon: PotIcon },
 ];
 
 const DELIVERY_LINES = [
-  { Icon: PinIcon, text: `Melbourne Metro delivery — $${DELIVERY_FEE.toFixed(2)}` },
-  { Icon: GiftIcon, text: `Free delivery over $${FREE_SHIPPING_THRESHOLD}` },
-  { Icon: HeartIcon, text: "Melbourne Metro area only" },
+  { Icon: PinIcon, text: DELIVERY_INFO.metro },
+  { Icon: GiftIcon, text: DELIVERY_INFO.free },
+  { Icon: HouseIcon, text: DELIVERY_INFO.pickup },
 ];
 
 export default function Footer() {
@@ -79,12 +80,7 @@ export default function Footer() {
                     {text}
                   </li>
                 ))}
-                <li className="flex items-start gap-2.5 pt-1 text-sm text-ink-soft sm:gap-3 sm:text-base">
-                  <HouseIcon className="mt-0.5 h-4 w-4 shrink-0 text-coral sm:h-5 sm:w-5" />
-                  <span>
-                    Free pickup — {PICKUP_LOCATIONS.join(" · ")}, VIC
-                  </span>
-                </li>
+                <li className="text-xs text-ink-faint sm:text-sm">{DELIVERY_INFO.pickupNote}</li>
               </ul>
             </div>
           </div>

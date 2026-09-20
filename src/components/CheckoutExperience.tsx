@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { formatPrice, CONTACT } from "@/lib/utils";
 import QtyStepper from "@/components/QtyStepper";
+import DeliveryInfo from "@/components/DeliveryInfo";
 import PageIntro from "@/components/PageIntro";
 
 export default function CheckoutExperience() {
@@ -134,9 +135,7 @@ export default function CheckoutExperience() {
             {error && (
               <p className="mt-4 text-sm font-bold text-coral-dark">{error}</p>
             )}
-            <p className="mt-5 text-xs text-teal/70">
-              Free pickup available in Balwyn North and Templestowe Lower.
-            </p>
+            <DeliveryInfo className="mt-5 text-xs text-teal/70" />
           </div>
         </div>
       </section>

@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: "/quiz", label: "Dog Quiz" },
   { href: "/our-story", label: "Our Story" },
   { href: "/ingredients", label: "Ingredients" },
+  { href: "/how-to-serve", label: "How to Serve" },
 ];
 
 function Wordmark() {
@@ -75,7 +76,7 @@ export default function Navbar() {
             <Wordmark />
           </Link>
 
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-6 lg:flex xl:gap-8">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -159,7 +160,7 @@ export default function Navbar() {
                     hidden: { opacity: 0, x: -24 },
                     show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
                   }}
-                  className="w-full border-b border-cream-soft/10 py-4"
+                  className="w-full border-b border-cream-soft/10 py-3"
                 >
                   <Link
                     href={link.href}
