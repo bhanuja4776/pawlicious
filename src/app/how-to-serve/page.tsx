@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { HeartIcon } from "@/components/icons";
+import { HeartIcon, PawIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "How to Serve — Paw-a-licious",
@@ -62,20 +62,54 @@ const EXTRAS = [
   },
 ];
 
+const FEEDING = [
+  { label: "Small dogs (up to 10kg)", amount: "150 – 250g per meal", src: "dog-small", w: 36, h: 33 },
+  { label: "Medium dogs (10 – 25kg)", amount: "250 – 450g per meal", src: "dog-medium", w: 54, h: 40 },
+  { label: "Large dogs (25kg+)", amount: "450 – 650g per meal", src: "dog-large", w: 62, h: 45 },
+];
+
 export default function HowToServePage() {
   return (
     <div className="bg-white pb-20 pt-24 lg:pb-28 lg:pt-32">
       <div className="mx-auto w-full max-w-[686px] space-y-8 px-5 sm:px-0 lg:space-y-10">
-        <h1 className="sr-only">How to Serve Paw-a-licious</h1>
-        <Image
-          src={`${A}/section-hero.png`}
-          alt="How to Serve Paw-a-licious. From our freezer to their bowl — simple, fresh & made with love. Happy dogs, happier lives."
-          width={686}
-          height={304}
-          priority
-          unoptimized
-          className="h-auto w-full"
-        />
+        <div className="hidden sm:block">
+          <h1 className="sr-only">How to Serve Paw-a-licious</h1>
+          <Image
+            src={`${A}/section-hero.png`}
+            alt="How to Serve Paw-a-licious. From our freezer to their bowl — simple, fresh & made with love. Happy dogs, happier lives."
+            width={686}
+            height={304}
+            priority
+            unoptimized
+            className="h-auto w-full"
+          />
+        </div>
+        <div className="overflow-hidden rounded-media bg-teal-tint sm:hidden">
+          <div className="p-7">
+            <h1>
+              <span className="script-accent block text-[2.75rem] text-teal-dark">How to Serve</span>
+              <span className="mt-1 flex items-center gap-2 font-display text-[2.1rem] font-medium leading-none text-coral">
+                Paw-a-licious
+                <HeartIcon className="h-7 w-7 shrink-0" />
+              </span>
+            </h1>
+            <p className="mt-4 text-lg text-ink-soft">
+              From our freezer to their bowl — simple, fresh &amp; made with love.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3.4]">
+            <Image
+              src={`${A}/hero-dog.png`}
+              alt="A happy dog looking out of a window"
+              fill
+              unoptimized
+              className="object-cover"
+            />
+            <p className="script-accent absolute bottom-4 right-4 max-w-[8rem] text-right text-3xl leading-[0.95] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]">
+              Happy dogs happier lives
+            </p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2">
           {STEPS.map(({ n, title, icon, tone, copy }, i) => (
@@ -166,8 +200,35 @@ export default function HowToServePage() {
             width={686}
             height={252}
             unoptimized
-            className="h-auto w-full"
+            className="hidden h-auto w-full sm:block"
           />
+          <div className="sm:hidden">
+            <h2 className="flex items-center gap-3 script-accent text-[2.5rem] text-teal-dark">
+              Feeding Guide <PawIcon fill="currentColor" stroke="none" className="h-7 w-7 text-coral" />
+            </h2>
+            <p className="mt-2 text-ink-soft">
+              A general guide to help you find the right amount for your dog.
+            </p>
+            <div className="mt-5 divide-y divide-ink/10 overflow-hidden rounded-card border border-ink/10 bg-white">
+              {FEEDING.map(({ label, amount, src, w, h }) => (
+                <div key={label} className="grid grid-cols-[4rem_1fr] items-center gap-x-3 px-4 py-4">
+                  <Image
+                    src={`${A}/${src}.png`}
+                    alt=""
+                    width={w}
+                    height={h}
+                    unoptimized
+                    className="justify-self-center"
+                    style={{ width: w, height: h }}
+                  />
+                  <div>
+                    <p className="font-bold text-ink">{label}</p>
+                    <p className="font-display text-lg text-coral">{amount}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="mt-4 flex items-start gap-4 rounded-card bg-teal-tint p-5">
             <Image
               src={`${A}/drop.png`}
@@ -195,8 +256,22 @@ export default function HowToServePage() {
             width={686}
             height={238}
             unoptimized
-            className="h-auto w-full"
+            className="hidden h-auto w-full sm:block"
           />
+          <div className="text-center sm:hidden">
+            <p className="script-accent text-[2.75rem] leading-[1.05] text-teal-dark">
+              Real food. <span className="text-coral">Happier dogs.</span>
+            </p>
+            <div className="relative mx-auto mt-6 aspect-[266/220] w-full max-w-[320px] overflow-hidden rounded-media">
+              <Image
+                src={`${A}/bowl.png`}
+                alt="A bowl of Paw-a-licious homemade dog food"
+                fill
+                unoptimized
+                className="object-cover"
+              />
+            </div>
+          </div>
           <div className="mt-6 text-center">
             <Link href="/shop" className="btn btn-coral">
               Shop Paw-a-licious
