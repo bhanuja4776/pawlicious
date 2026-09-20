@@ -30,7 +30,7 @@ const STEPS = [
   {
     n: 3,
     title: "Serve",
-    icon: { src: "serve-bowl", w: 68, h: 76 },
+    icon: { src: "serve-bowl", w: 75, h: 76 },
     tone: "coral",
     copy: "Serve chilled or warm slightly for 30–40 seconds in the microwave. Dogs often prefer their meal slightly warm.",
   },
@@ -48,16 +48,16 @@ const EXTRAS = [
     title: "Cooked egg",
     color: "text-coral",
     src: "egg",
-    w: 144,
-    h: 142,
+    w: 142,
+    h: 131,
     copy: "Add 1–2 cooked eggs and serve alongside their meal.",
   },
   {
     title: "Natural yoghurt",
     color: "text-teal",
     src: "yoghurt",
-    w: 102,
-    h: 132,
+    w: 136,
+    h: 130,
     copy: "Add 1–2 tablespoons of plain natural yoghurt.",
   },
 ];
@@ -137,8 +137,16 @@ export default function HowToServePage() {
                   width={w}
                   height={h}
                   unoptimized
-                  className="h-auto shrink-0 rounded-tight"
-                  style={{ width: Math.round(w * 0.85) }}
+                  className="h-auto shrink-0 mix-blend-multiply"
+                  style={{
+                    width: Math.round(w * 0.85),
+                    WebkitMaskImage:
+                      "linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent)",
+                    WebkitMaskComposite: "source-in",
+                    maskImage:
+                      "linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent)",
+                    maskComposite: "intersect",
+                  }}
                 />
                 <div>
                   <h3 className={`font-display text-lg font-medium uppercase tracking-wide ${color}`}>
