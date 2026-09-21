@@ -69,6 +69,8 @@ export async function POST(req: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items,
+      shipping_address_collection: { allowed_countries: ["AU"] },
+      phone_number_collection: { enabled: true },
       success_url: `${origin}/?order=success`,
       cancel_url: `${origin}/checkout`,
     });

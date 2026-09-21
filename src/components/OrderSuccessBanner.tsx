@@ -21,7 +21,7 @@ export default function OrderSuccessBanner() {
 
   return (
     <div className="bg-coral px-4 py-4 text-center text-sm font-bold text-cream-soft sm:text-base">
-      🎉 Thank you! Your order is confirmed — we&apos;ll be in touch to arrange delivery or pickup.
+      🎉 Thank you! Your order is confirmed — a confirmation email with your delivery details is on its way.
     </div>
   );
 }
