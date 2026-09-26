@@ -13,7 +13,9 @@ export default function CheckoutExperience() {
   const { lines, incrementQty, decrementQty, subtotal, deliveryFee, amountToFreeShipping } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const shipping = lines.length === 0 || amountToFreeShipping <= 0 ? 0 : deliveryFee;
+  const [method, setMethod] = useState<"delivery" | "pickup">("delivery");
+  const pickup = method === "pickup";
+  const shipping = pickup || lines.length === 0 || amountToFreeShipping <= 0 ? 0 : deliveryFee;
   const total = subtotal + shipping;
 
   async function handleCheckout() {
@@ -25,6 +27,7 @@ export default function CheckoutExperience() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           lines: lines.map((l) => ({ slug: l.slug, grams: l.grams, qty: l.qty })),
+          method,
         }),
       });
       const data = await res.json();
@@ -104,16 +107,44 @@ export default function CheckoutExperience() {
 
           <div className="h-fit rounded-card bg-teal-tint p-7">
             <h2 className="font-display text-2xl font-medium text-teal">Order total</h2>
+            <fieldset className="mt-5">
+              <legend className="mb-2 text-sm font-bold text-teal">How would you like to get your order?</legend>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {(
+                  [
+                    { value: "delivery", title: "Delivery", sub: "Melbourne Metro" },
+                    { value: "pickup", title: "Free pickup", sub: "Balwyn North or Templestowe Lower" },
+                  ] as const
+                ).map((opt) => (
+                  <label
+                    key={opt.value}
+                    className="cursor-pointer rounded-tight border-2 bg-white p-3 text-teal transition"
+                    style={{ borderColor: method === opt.value ? "#04889c" : "transparent" }}
+                  >
+                    <input
+                      type="radio"
+                      name="fulfilment"
+                      value={opt.value}
+                      checked={method === opt.value}
+                      onChange={() => setMethod(opt.value)}
+                      className="sr-only"
+                    />
+                    <span className="block font-bold">{opt.title}</span>
+                    <span className="block text-xs text-teal/70">{opt.sub}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
             <div className="mt-6 flex flex-col gap-3 text-teal">
               <div className="flex justify-between">
                 <span>Subtotal</span>
                 <span className="font-bold">{formatPrice(subtotal)}</span>
               </div>
               <div className="flex justify-between">
-                <span>Delivery (Melbourne Metro)</span>
+                <span>{pickup ? "Pickup" : "Delivery (Melbourne Metro)"}</span>
                 <span className="font-bold">{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
               </div>
-              {amountToFreeShipping > 0 && lines.length > 0 && (
+              {!pickup && amountToFreeShipping > 0 && lines.length > 0 && (
                 <p className="text-xs">
                   Add {formatPrice(amountToFreeShipping)} more for free delivery.
                 </p>

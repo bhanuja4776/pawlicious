@@ -7,7 +7,7 @@ import { DELIVERY_FEE, FREE_SHIPPING_THRESHOLD } from "@/lib/utils";
 type CheckoutLine = { slug: string; grams: number; qty: number };
 
 export async function POST(req: Request) {
-  let body: { lines?: CheckoutLine[] };
+  let body: { lines?: CheckoutLine[]; method?: string };
   try {
     body = await req.json();
   } catch {
@@ -15,6 +15,7 @@ export async function POST(req: Request) {
   }
 
   const requestedLines = Array.isArray(body.lines) ? body.lines : [];
+  const pickup = body.method === "pickup";
   if (requestedLines.length === 0) {
     return NextResponse.json({ error: "Your cart is empty." }, { status: 400 });
   }
@@ -52,7 +53,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "No valid items in cart." }, { status: 400 });
   }
 
-  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : DELIVERY_FEE;
+  const shipping = pickup || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : DELIVERY_FEE;
   if (shipping > 0) {
     line_items.push({
       quantity: 1,
@@ -69,8 +70,9 @@ export async function POST(req: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items,
-      shipping_address_collection: { allowed_countries: ["AU"] },
+      ...(pickup ? {} : { shipping_address_collection: { allowed_countries: ["AU" as const] } }),
       phone_number_collection: { enabled: true },
+      metadata: { fulfilment: pickup ? "pickup" : "delivery" },
       success_url: `${origin}/?order=success`,
       cancel_url: `${origin}/checkout`,
     });
