@@ -16,7 +16,7 @@ const money = (cents: number | null | undefined, currency = "aud") =>
     (cents ?? 0) / 100
   );
 
-export type OrderEmail = { to: string; subject: string; html: string; text: string };
+export type OrderEmail = { to: string; subject: string; html: string; text: string; replyTo?: string };
 
 export function orderReference(session: Stripe.Checkout.Session): string {
   return session.id.slice(-8).toUpperCase();
@@ -132,4 +132,80 @@ export function buildOrderEmail(session: Stripe.Checkout.Session): OrderEmail | 
 </body></html>`;
 
   return { to, subject, html, text };
+}
+
+export const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "info@pawalicious.com.au";
+
+export function buildOwnerEmail(session: Stripe.Checkout.Session): OrderEmail {
+  const ref = orderReference(session);
+  const currency = session.currency ?? "aud";
+  const name = session.customer_details?.name ?? session.collected_information?.shipping_details?.name ?? "Customer";
+  const customerEmail = session.customer_details?.email ?? "";
+  const phone = session.customer_details?.phone ?? "";
+  const items = session.line_items?.data ?? [];
+  const address = addressLines(session);
+  const total = money(session.amount_total, currency);
+  const pi = typeof session.payment_intent === "string" ? session.payment_intent : session.payment_intent?.id;
+  const stripeUrl = pi
+    ? `https://dashboard.stripe.com/${session.livemode ? "" : "test/"}payments/${pi}`
+    : "";
+
+  const subject = `New order #${ref} — ${total} — ${name}`;
+
+  const text = [
+    `NEW ORDER #${ref}`,
+    `Total paid: ${total}`,
+    "",
+    "CUSTOMER",
+    name,
+    customerEmail ? `Email: ${customerEmail}` : "Email: (none)",
+    phone ? `Phone: ${phone}` : "Phone: (none)",
+    "",
+    "DELIVERY ADDRESS",
+    ...(address.length ? address : ["(no address provided)"]),
+    "",
+    "ITEMS",
+    ...items.map((i) => `- ${i.description} x ${i.quantity}: ${money(i.amount_total, currency)}`),
+    ...(stripeUrl ? ["", `View in Stripe: ${stripeUrl}`] : []),
+    "",
+    "Reply to this email to contact the customer directly.",
+  ].join("\n");
+
+  const rows = items
+    .map(
+      (i) =>
+        `<tr><td style="padding:6px 0;">${esc(i.description)}</td><td style="padding:6px 8px;text-align:center;">${esc(i.quantity)}</td><td style="padding:6px 0;text-align:right;">${esc(money(i.amount_total, currency))}</td></tr>`
+    )
+    .join("");
+
+  const html = `<!doctype html>
+<html><body style="margin:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#232323;">
+<div style="max-width:560px;margin:0 auto;padding:24px 20px;">
+  <div style="background:#fde3da;border-radius:14px;padding:18px 20px;">
+    <h1 style="margin:0;font-size:20px;color:#a02f18;">New order #${esc(ref)}</h1>
+    <p style="margin:6px 0 0;font-size:18px;font-weight:bold;">${esc(total)} paid</p>
+  </div>
+
+  <h2 style="font-size:15px;color:#04889c;margin:22px 0 6px;">Customer</h2>
+  <p style="margin:0;font-size:14px;line-height:1.7;">
+    ${esc(name)}<br>
+    ${customerEmail ? `<a href="mailto:${esc(customerEmail)}" style="color:#e8560f;">${esc(customerEmail)}</a>` : "No email"}<br>
+    ${phone ? `<a href="tel:${esc(phone)}" style="color:#e8560f;">${esc(phone)}</a>` : "No phone"}
+  </p>
+
+  <h2 style="font-size:15px;color:#04889c;margin:22px 0 6px;">Delivery address</h2>
+  <p style="margin:0;font-size:14px;line-height:1.7;">${address.length ? address.map(esc).join("<br>") : "No address provided"}</p>
+
+  <h2 style="font-size:15px;color:#04889c;margin:22px 0 6px;">Items</h2>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;font-size:14px;">
+    ${rows}
+    <tr><td style="padding:10px 0;font-weight:bold;border-top:1px solid #eee6dc;">Total paid</td><td style="border-top:1px solid #eee6dc;"></td><td style="padding:10px 0;font-weight:bold;text-align:right;border-top:1px solid #eee6dc;">${esc(total)}</td></tr>
+  </table>
+
+  ${stripeUrl ? `<p style="margin:20px 0 0;font-size:14px;"><a href="${esc(stripeUrl)}" style="color:#e8560f;font-weight:bold;">View this payment in Stripe</a></p>` : ""}
+  <p style="margin:16px 0 0;font-size:13px;color:#5b534c;">Reply to this email to contact the customer directly.</p>
+</div>
+</body></html>`;
+
+  return { to: OWNER_EMAIL, subject, html, text, replyTo: customerEmail || undefined };
 }

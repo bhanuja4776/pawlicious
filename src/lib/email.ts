@@ -22,7 +22,7 @@ export function getTransport() {
 export async function sendOrderEmail(mail: OrderEmail) {
   await getTransport().sendMail({
     from: EMAIL_FROM,
-    replyTo: EMAIL_REPLY_TO,
+    replyTo: mail.replyTo ?? EMAIL_REPLY_TO,
     to: mail.to,
     subject: mail.subject,
     text: mail.text,

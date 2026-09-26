@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { buildOrderEmail } from "@/lib/orderEmail";
+import { handlePaidSession } from "@/lib/orderWebhook";
 import { sendOrderEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
@@ -36,20 +36,12 @@ export async function POST(req: Request) {
   }
 
   try {
-    const session = await stripe.checkout.sessions.retrieve(eventSession.id, {
-      expand: ["line_items"],
-    });
-    const mail = buildOrderEmail(session);
-    if (!mail) {
-      console.error(`Order ${session.id}: no customer email on session, confirmation not sent.`);
-      return NextResponse.json({ received: true });
-    }
-    await sendOrderEmail(mail);
+    await handlePaidSession(stripe, eventSession.id, sendOrderEmail);
   } catch (err) {
     // A non-2xx response makes Stripe retry the webhook, so a temporary
-    // email/API failure doesn't silently lose the confirmation.
-    console.error("Order confirmation email failed:", err);
-    return NextResponse.json({ error: "Could not send confirmation." }, { status: 500 });
+    // email/API failure doesn't silently lose a confirmation.
+    console.error("Order emails failed:", err);
+    return NextResponse.json({ error: "Could not send order emails." }, { status: 500 });
   }
 
   return NextResponse.json({ received: true });
